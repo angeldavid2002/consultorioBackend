@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XfH0tYe1TPZXtLIcDims8rXXbyzgzbR4rFM++ctH/xKX2w4owEbt09PNigwO8bIM5qE0WgTg/cK1mJQ/8/e8nA==",
+  "dgSpecHash": "30wvyHZxEsP1nf+85ZBRcVg/45NxtDlj3ZdhmmaDzWLGbPGGSNu4V+gdzp7Vyps8LYzZsQatp8hEguGtgQW2YQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Datos\\Datos.csproj",
+  "projectFilePath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Datos\\Datos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\angel\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\angel\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

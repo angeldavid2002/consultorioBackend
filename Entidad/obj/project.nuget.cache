@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZnpAq0SfvmyIUW9+PH2Aw18JswJc5hxIhwk9okKWw7UUzwHOmQH4iZDxgALKU4F/06LjeKZ3PKqXocmcjjsLOw==",
+  "dgSpecHash": "k/+cMIYHL4WdjP+WXX4ZBJHMYUXmvHk+bQ5YRCWlpkozwRND+og09FRHnKctipvCmK2rXhev/ATPPEl5nVREWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Entidad\\Entidad.csproj",
+  "projectFilePath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

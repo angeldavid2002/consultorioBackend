@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Datos\\Datos.csproj": {}
+    "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Datos\\Datos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Datos\\Datos.csproj": {
+    "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Datos\\Datos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Datos\\Datos.csproj",
+        "projectUniqueName": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Datos\\Datos.csproj",
         "projectName": "Datos",
-        "projectPath": "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Datos\\Datos.csproj",
+        "projectPath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Datos\\Datos.csproj",
         "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Datos\\obj\\",
+        "outputPath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Datos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Entidad\\Entidad.csproj": {
-                "projectPath": "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Entidad\\Entidad.csproj"
+              "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj": {
+                "projectPath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Entidad\\Entidad.csproj": {
+    "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Entidad\\Entidad.csproj",
+        "projectUniqueName": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj",
         "projectName": "Entidad",
-        "projectPath": "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Entidad\\Entidad.csproj",
+        "projectPath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj",
         "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\angel\\Documents\\GitHub\\dashboardConsultorioDotnet\\Entidad\\obj\\",
+        "outputPath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
