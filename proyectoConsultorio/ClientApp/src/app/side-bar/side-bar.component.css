@@ -1,0 +1,55 @@
+.btnsidebar{
+    background-color: #2E4053;
+    color: white;
+    border: 2px solid #2E4053;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 170px;
+    margin-top: 6px;
+    transition-duration: 1s;
+    text-align: left;
+    padding-left: 20px;
+}
+.btnsidebar:hover{
+    background-color: white;
+    color: #2E4053;
+}
+.contenido_sidebar{
+    padding-left: 10px;
+}
+.contenedor_botones_menu{
+    margin-left: 8px;
+}
+.btnopciones{
+    background-color: #2E4053;
+    color: white;
+    border: 2px solid #2E4053;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 160px;
+    margin-top: 6px;
+    text-align: left;
+    transition-duration: 1s;
+}
+.btnsubopciones{
+    background-color: #2E4053;
+    color: white;
+    border: 2px solid #2E4053;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-top: 6px;
+    text-align: left;
+    transition-duration: 1s;
+}
+.btnsubopciones:hover{
+    background-color: white;
+    color: #2E4053;
+}
+.btnopciones:hover{
+    background-color: white;
+    color: #2E4053;
+}
+.contenedores{
+    display: none;
+    margin-left: 20px;
+}

@@ -1,0 +1,21 @@
+.contenedor{
+    height: 100%;
+    background: white;
+    color: black;
+    align-items: flex-end;
+    text-anchor:initial;
+}
+.subcontenedor1{
+    width: 200px;
+    height:100%;
+    display: inline-block;
+    float:left;
+}
+.subcontenedor2{
+    width: 86%;
+    align-items: flex-start;
+    text-anchor: start;
+    display:inline-block;
+    float: left;
+    
+}

@@ -1,0 +1,16 @@
+.header{
+    padding: 1px;
+    text-align:left ;
+    background: #2E4053;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+.tituloConsultorio{
+    display: inline;
+}
+.iconoConsultorio{
+    width: 20px;
+    height: 20px;
+}
