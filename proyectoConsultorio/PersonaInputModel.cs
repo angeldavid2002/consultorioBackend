@@ -1,18 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
-namespace Entidad
+namespace proyectoConsultorio
 {
-    public class persona
+    public class PersonaInputModel
     {
-        public persona()
+        public PersonaInputModel()
         {
-            
         }
-        [Key]
         public String identificacion { get; set; }
         public String nombre { get; set; }
         public String apellido { get; set; }
@@ -21,5 +15,4 @@ namespace Entidad
         public String correo { get; set; }
         public String telefono { get; set; }
     }
-    
 }
