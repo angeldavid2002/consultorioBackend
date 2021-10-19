@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-cliente-registro',
   templateUrl: './cliente-registro.component.html',
@@ -8,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 export class ClienteRegistroComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
   }
 
