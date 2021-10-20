@@ -8,6 +8,9 @@ namespace Entidad
 {
     public class cita
     {
+        public cita()
+        {
+        }
         [Key]
         public int idCita { get; set; }
         public DateTime fechaCita { get; set; }
