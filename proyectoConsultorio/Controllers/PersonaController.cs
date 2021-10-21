@@ -23,6 +23,7 @@ namespace proyectoConsultorio.Controllers
         public IEnumerable<PersonaViewModel> Gets()
         {
             var personas = personaservice.ConsultarTodos().Select(p=> new PersonaViewModel(p));
+
             return personas;
         }
         // POST: api/Persona
@@ -45,7 +46,7 @@ namespace proyectoConsultorio.Controllers
                 nombre = personaInput.nombre,
                 apellido = personaInput.apellido,
                 direccion= personaInput.direccion,
-                añoNacimiento = personaInput.añoNacimiento,
+                añoNacimiento = personaInput.anoNacimiento,
                 correo = personaInput.correo,
                 telefono= personaInput.telefono
             };

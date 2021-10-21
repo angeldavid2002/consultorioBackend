@@ -5,14 +5,14 @@
 <br>
 <div class="form">
   <div class="identificacion">
-    <input type="text" name="identifiacion" placeholder="identifiacion...">
+    <input  type="text" id="identificacion" [(ngModel)]="searchText"  placeholder="identificacion...">
   </div>
   <div class="buscar">
     <button type="button">Buscar</button>
   </div>
 </div>
 <div>
-  <table>
+  <table class="table table-striped" *ngIf='personas && personas.length'>
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -26,15 +26,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let persona of personas|filtroPaciente:searchText; index as i ">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ persona.identificacion }}</td>
+            <td>{{ persona.nombre}}</td>
+            <td>{{ persona.apellido}}</td>
+            <td>{{ persona.direccion}}</td>
+            <td>{{ persona.anoNacimiento | date:'d/M/yyyy  h:mm a'}}</td>
+            <td>{{ persona.correo}}</td>
+            <td>{{ persona.telefono}}</td>
         </tr>
     </tbody>
   </table>

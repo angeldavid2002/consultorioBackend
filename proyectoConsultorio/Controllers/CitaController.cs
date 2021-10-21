@@ -38,7 +38,7 @@ namespace proyectoConsultorio.Controllers
                 return BadRequest(response.Mensaje);
             }
             return Ok(response.Cita);
-        } 
+        }
         private cita MapearCita(CitaInputModel citaInput)
         {
             var cita = new cita{

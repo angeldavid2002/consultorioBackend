@@ -8,7 +8,7 @@ namespace proyectoConsultorio
         public String nombre { get; set; }
         public String apellido { get; set; }
         public String direccion { get; set; }
-        public DateTime añoNacimiento { get; set; }
+        public DateTime anoNacimiento { get; set; }
         public String correo { get; set; }
         public String telefono { get; set; }
     }
@@ -24,7 +24,7 @@ namespace proyectoConsultorio
             nombre=persona.nombre;
             apellido=persona.apellido;
             direccion=persona.direccion;
-            añoNacimiento=persona.añoNacimiento;
+            anoNacimiento=persona.añoNacimiento;
             correo=persona.correo;
             telefono=persona.telefono;
         }

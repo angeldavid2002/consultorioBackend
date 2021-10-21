@@ -18,8 +18,8 @@ namespace Logica
         {
             try
             {
-                var personaBuscada =_context.personas.Find(cita.idCita);
-                if (personaBuscada!=null)
+                var citaBuscada =_context.citas.Find(cita.idCita);
+                if (citaBuscada!=null)
                 {
                     return new GuardarCitaResponse("la cita ya esta registrada");
                 }
