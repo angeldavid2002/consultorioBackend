@@ -18,14 +18,16 @@ namespace Logica
         {
             try
             {
-                var citaBuscada =_context.citas.Find(cita.idCita);
-                if (citaBuscada!=null)
+                var persona =_context.personas.Find(cita.idPersona) ;
+                if (persona!=null)
                 {
-                    return new GuardarCitaResponse("la cita ya esta registrada");
+                    cita.persona=_context.personas.Find(cita.idPersona);
+                    _context.citas.Add(cita);
+                    _context.SaveChanges();
+                    return new GuardarCitaResponse(cita);
                 }
-                _context.citas.Add(cita);
-                _context.SaveChanges();
-                return new GuardarCitaResponse(cita);
+                return new GuardarCitaResponse("la persona no se encuentra registrada");
+                
             }
             catch (Exception e)
             {
@@ -34,8 +36,12 @@ namespace Logica
         }
         public List<cita> ConsultarTodos()
         {
-            List<cita> cita =_context.citas.ToList();
-            return cita;
+            List<cita> citas =_context.citas.ToList();
+            foreach (var cita in citas)
+            {
+                cita.persona=_context.personas.Find(cita.idPersona);
+            }
+            return citas;
         }
     }
     public class GuardarCitaResponse 

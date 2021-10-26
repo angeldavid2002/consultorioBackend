@@ -24,8 +24,8 @@ namespace proyectoConsultorio.Controllers
         [HttpGet]
         public IEnumerable<CitaViewModel> Gets()
         {
-            var cita = citaservice.ConsultarTodos().Select(p=> new CitaViewModel(p));
-            return cita;
+            var citas = citaservice.ConsultarTodos().Select(p=> new CitaViewModel(p));
+            return citas;
         }
         // POST: api/Cita
         [HttpPost]
@@ -42,10 +42,11 @@ namespace proyectoConsultorio.Controllers
         private cita MapearCita(CitaInputModel citaInput)
         {
             var cita = new cita{
-                idCita=citaInput.idCita,
                 fechaCita=citaInput.fechaCita,
-                idPersona=citaInput.idPersona,
-                persona=citaInput.persona,
+                idPersona=citaInput.persona.identificacion,
+                persona=new persona{
+                    identificacion=citaInput.persona.identificacion,
+                },
             };
             return cita;
         }

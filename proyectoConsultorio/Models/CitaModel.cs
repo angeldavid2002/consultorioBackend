@@ -4,14 +4,16 @@ namespace proyectoConsultorio
 {
     public class CitaInputModel
     {
-        public int idCita { get; set; }
         public DateTime fechaCita { get; set; }
         public string idPersona { get; set; }
         public persona persona { get; set; }
     }
 
-    public class CitaViewModel:CitaInputModel
+    public class CitaViewModel
     {
+        public int idCita { get; set; }
+        public DateTime fechaCita { get; set; }
+        public persona persona { get; set; }
         public CitaViewModel(){
 
         }
@@ -19,7 +21,6 @@ namespace proyectoConsultorio
         {
             idCita=cita.idCita;
             fechaCita=cita.fechaCita;
-            idPersona=cita.idPersona;
             persona=cita.persona;
         }
     }

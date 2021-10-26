@@ -36,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     FiltroPacientePipe,
   ],
   imports: [
+    
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
