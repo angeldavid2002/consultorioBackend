@@ -6,9 +6,9 @@ import { Persona } from '../Models/Persona';
 })
 export class FiltroPacientePipe implements PipeTransform {
 
-  transform(persona: Persona[], searchText: string): any {
-    if (searchText == null) return persona;
-      return persona.filter(p =>
+  transform(personas: Persona[], searchText: string): any {
+    if (searchText == null) return personas;
+      return personas.filter(p =>
       p.nombre.toLowerCase()
       .indexOf(searchText.toLowerCase()) !== -1);
   }

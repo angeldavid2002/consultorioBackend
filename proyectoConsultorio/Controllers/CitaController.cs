@@ -24,8 +24,24 @@ namespace proyectoConsultorio.Controllers
         [HttpGet]
         public IEnumerable<CitaViewModel> Gets()
         {
-            var citas = citaservice.ConsultarTodos().Select(p=> new CitaViewModel(p));
-            return citas;
+            var citas = citaservice.ConsultarTodos();
+            if(citas!=null){
+                return MapearConsultaCitas(citas);
+            }
+            return new List<CitaViewModel>();
+        }
+        private IEnumerable<CitaViewModel> MapearConsultaCitas(List<cita> citas)
+        {
+            List<CitaViewModel> citasConsultadas= new List<CitaViewModel>();
+            foreach (var cita in citas)
+            {
+                CitaViewModel citaMap=new CitaViewModel();
+                citaMap.idCita=cita.idCita;
+                citaMap.idPersona=cita.persona.identificacion;
+                citaMap.fechaCita=cita.fechaCita;
+                citasConsultadas.Add(citaMap);
+            }
+            return citasConsultadas;
         }
         // POST: api/Cita
         [HttpPost]
@@ -43,18 +59,25 @@ namespace proyectoConsultorio.Controllers
         {
             var cita = new cita{
                 fechaCita=citaInput.fechaCita,
-                idPersona=citaInput.persona.identificacion,
+                idPersona=citaInput.idPersona,
                 persona=new persona{
-                    identificacion=citaInput.persona.identificacion,
                 },
             };
             return cita;
         }
         // PUT: api/Cita/5
-        [HttpPut("{identificacion}")]
-        public ActionResult<string> Put(string identificacion, cita cita)
+        [HttpPut("{citaId}")]
+        public ActionResult<String> Put(CitaInputModel citaInput,int citaId)
         {
-            throw new NotImplementedException();
+            cita citaReq = MapearCita(citaInput);
+            citaReq.idCita=citaId;
+            var response = citaservice.actualizar(citaReq);
+            if (response.Error) 
+            {
+                return BadRequest(response.Mensaje);
+            }
+            return Ok(response.Cita);
         }
+
     }
 }

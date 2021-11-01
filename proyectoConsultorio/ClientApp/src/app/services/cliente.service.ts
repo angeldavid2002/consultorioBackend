@@ -9,19 +9,25 @@ import { tap, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ClienteService {
-    baseUrl: string;
-    constructor(
-      private http: HttpClient,
-      @Inject('BASE_URL') baseUrl: string,
-      private handleErrorService: HandleHttpErrorService)
-    {
-      this.baseUrl = baseUrl;
-    }
-    get(): Observable<Persona[]> {
-      return this.http.get<Persona[]>(this.baseUrl + 'api/Persona')
-          .pipe(
-              tap(_ => this.handleErrorService.log('datos enviados')),
-              catchError(this.handleErrorService.handleError<Persona[]>('Consulta Persona', null))
-          );
-    }
+  baseUrl: string;
+  constructor(
+    private http: HttpClient,
+    @Inject('BASE_URL') baseUrl: string,
+    private handleErrorService: HandleHttpErrorService) {
+    this.baseUrl = baseUrl;
+  }
+  get(): Observable<Persona[]> {
+    return this.http.get<Persona[]>(this.baseUrl + 'api/Persona')
+      .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<Persona[]>('Consulta Persona', null))
+      );
+  }
+  delete(identificacion: string): Observable<string> {
+    return this.http.delete<string>(this.baseUrl + 'api/Persona/' + identificacion)
+      .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<string>('Elimina Persona', null))
+      );
+  }
 }

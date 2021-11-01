@@ -38,6 +38,12 @@ namespace proyectoConsultorio.Controllers
             }
             return Ok(response.Persona);
         } 
+        [HttpDelete("{identificacion}")]
+        public ActionResult<String> Delete([FromRoute]String identificacion)
+        {
+            String mensaje = personaservice.Eliminar(identificacion);
+            return mensaje;
+        }
         private persona MapearPersona(PersonaInputModel personaInput)
         {
             var persona = new persona
@@ -53,10 +59,12 @@ namespace proyectoConsultorio.Controllers
             return persona;
         }
         // PUT: api/Persona/5
-        [HttpPut("{identificacion}")]
-        public ActionResult<string> Put(string identificacion, persona persona)
+        [HttpPut]
+        public ActionResult<string> Put(PersonaInputModel personaInputModel)
         {
-            throw new NotImplementedException();
+            persona persona=MapearPersona(personaInputModel);
+            string mensaje=personaservice.actualizar(persona);
+            return Ok(mensaje);
         }
     }
 }
