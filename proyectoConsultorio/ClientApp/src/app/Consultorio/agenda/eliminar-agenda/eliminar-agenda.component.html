@@ -1,46 +1,16 @@
 <div class="titulo">
-  eliminar agenda
+  Eliminar Cita
 </div>
 <br>
 <br>
-<div class="form">
-  <div class="identificacion">
-    <input type="text" name="textoVerificacion" placeholder="digite...">
-  </div>
-  <div class="buscar">
-    <button type="button">Buscar</button>
-  </div>
-</div>
-<div  class="form">
-  <select class="select" name="select">
-    <option value="value1">Value 1</option>
-  </select>
-</div>
-<div>
-  <table>
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">identificación</th>
-            <th scope="col">Nombres </th>
-            <th scope="col">apellidos</th>
-            <th scope="col">direccion</th>
-            <th scope="col">año de nacimiento</th>
-            <th scope="col">correo</th>
-            <th scope="col">telefono</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-  </table>
-</div>
+<form class="form" action="ejemplo.php" method="get">
+    <input type="number" [(ngModel)]="searchText" placeholder="identificacion..." name="identifiacion">
+    <br>
+    <div>
+      <button (click)="eliminar()" type="button">Eliminar</button>
+    </div>
+    <div>
+      <button class="borrar" type="reset">Borrar</button>
+    </div>
+
+</form>

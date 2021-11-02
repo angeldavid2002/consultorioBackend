@@ -4,16 +4,16 @@ Registrar paciente
 <br>
 <br>
 <form class="form" action="ejemplo.php" method="get">
-    <input type="text" name="identifiacion" placeholder="identifiacion...">
-    <input type="text" name="nombre" placeholder="nombres...">
-    <input type="text" name="apellidos" placeholder="apellidos..." />
-    <input type="text" name="direccion" placeholder="direccion..." />
-    <input type="number" name="nacido" placeholder="año de nacimiento..." min="1800">
-    <input type="text" name="correo" placeholder="correo electrónico..." />
-    <input type="text" name="telefono" placeholder="telefono..."/>
+    <input type="text" [(ngModel)]="persona.identificacion" name="identifiacion" placeholder="identifiacion...">
+    <input type="text" [(ngModel)]="persona.nombre" name="nombre" placeholder="nombres...">
+    <input type="text" [(ngModel)]="persona.apellido" name="apellidos" placeholder="apellidos..." />
+    <input type="text" [(ngModel)]="persona.direccion" name="direccion" placeholder="direccion..." />
+    <input id="fecha-seleccion" type="datetime-local">
+    <input type="text" [(ngModel)]="persona.correo" name="correo" placeholder="correo electrónico..." />
+    <input type="text" [(ngModel)]="persona.telefono" name="telefono" placeholder="telefono..."/>
     <br>
     <div class="registrar">
-      <button type="button">registrar</button>
+      <button type="button" (click)="GuardarPersona()" >registrar</button>
     </div>
     <div class="borrar">
       <button type="reset">Borrar</button>

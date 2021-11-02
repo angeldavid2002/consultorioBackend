@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wZpXlwDgdO3m8Imtl/lFeELlLej2R7bGhoZTGnWvPej7J9uDngoLyo5ZU9W99j4nMclLZahuRyypjjhUBSGl+g==",
+  "dgSpecHash": "ncSk6UV2/B/slAJc6fcGboPkmiIVxc1usZq0K+do6dHKuj9pX6WUl0Q5tYG0mnlMFKSfd6EspmPXqoef2Upv0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\elpil\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj",
+  "projectFilePath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\elpil\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    "C:\\Users\\angel\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -3,7 +3,7 @@ export class Persona{
   nombre: string;
   apellido: string;
   direccion:string;
-  anoNacimiento:Date;
+  añoNacimiento:Date;
   correo:string;
   telefono:string;
 }

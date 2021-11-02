@@ -23,14 +23,12 @@ namespace proyectoConsultorio.Controllers
         public IEnumerable<PersonaViewModel> Gets()
         {
             var personas = personaservice.ConsultarTodos().Select(p=> new PersonaViewModel(p));
-
             return personas;
         }
         // POST: api/Persona
         [HttpPost]
-        public ActionResult<PersonaViewModel> Post(PersonaInputModel personaInput)
+        public ActionResult<PersonaViewModel> Post(persona persona)
         {
-            persona persona = MapearPersona(personaInput);
             var response = personaservice.Guardar(persona);
             if (response.Error) 
             {

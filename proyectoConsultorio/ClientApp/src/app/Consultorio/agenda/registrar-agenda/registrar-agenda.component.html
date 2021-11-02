@@ -5,47 +5,16 @@
   <br>
   <br>
   <div>
-    <table>
-      <thead>
-          <tr>
-              <th scope="col">#</th>
-              <th scope="col">identificación</th>
-              <th scope="col">Nombres </th>
-              <th scope="col">apellidos</th>
-              <th scope="col">direccion</th>
-              <th scope="col">año de nacimiento</th>
-              <th scope="col">correo</th>
-              <th scope="col">telefono</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <th></th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
-  <div>
     <div class="identificacion">
-      <input type="text" name="identifiacion" placeholder="identifiacion...">
-    </div>
-    <div class="buscar">
-      <button type="button">Buscar</button>
+      <input type="text" [(ngModel)]="cita.idPersona" name="identifiacion" placeholder="identificaion...">
     </div>
   </div>
   <div>
     <div class="fecha">
       <input id="fecha-seleccion" type="datetime-local">
     </div>
-    <div class="consultar">
-      <button class="btn_consultar" (click)="extraerFecha()">consultar</button>
+    <div class="registrar">
+      <button class="btn_registrar" (click)="extraerFecha()">consultar</button>
     </div>
   </div>
   <div>
@@ -53,7 +22,7 @@
   </div>
   <div>
     <div class="agendar">
-      <button type="button">Agendar</button>
+      <button (click)="registrarCita()" type="button">Agendar</button>
     </div>
     <div class="borrar">
       <button type="reset">Borrar</button>

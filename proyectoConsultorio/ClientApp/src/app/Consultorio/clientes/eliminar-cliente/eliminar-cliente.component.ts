@@ -19,6 +19,8 @@ export class EliminarClienteComponent implements OnInit {
     this.clienteService.delete(this.searchText).subscribe(result => {
       if(result!=null){
         alert("registro borrado");
+      }else{
+        alert("no se pudo borrar el registro");
       }
     });
   }

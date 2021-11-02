@@ -13,6 +13,9 @@
   padding-bottom: 5px;
   display: inline-block;
 }
+div{
+  display: inline-block;
+}
 table {
   border-collapse: collapse;
   text-align: center;
@@ -20,9 +23,12 @@ table {
 
   margin-left: 10%;
 }
+.borrar{
+  margin-left: 10px;
+}
 tr:nth-child(even){background-color: #f2f2f2}
 input, select {
-  width: 100%;
+  width: 60%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;

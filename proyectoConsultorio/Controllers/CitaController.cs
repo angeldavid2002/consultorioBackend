@@ -45,9 +45,8 @@ namespace proyectoConsultorio.Controllers
         }
         // POST: api/Cita
         [HttpPost]
-        public ActionResult<CitaViewModel> Post(CitaInputModel citaInput)
+        public ActionResult<CitaViewModel> Post(cita cita)
         {
-            cita cita = MapearCita(citaInput);
             var response = citaservice.Guardar(cita);
             if (response.Error) 
             {

@@ -4,10 +4,10 @@
 <br>
 <br>
 <form class="form" action="ejemplo.php" method="get">
-    <input type="text" [(ngModel)]="searchText" placeholder="identificacion..." name="identifiacion" size="40">
+    <input type="text" [(ngModel)]="searchText" placeholder="identificacion..." name="identifiacion">
     <br>
     <div>
-      <button onclick="eliminar()" type="button">Eliminar</button>
+      <button (click)="eliminar()" type="button">Eliminar</button>
     </div>
     <div>
       <button class="borrar" type="reset">Borrar</button>
