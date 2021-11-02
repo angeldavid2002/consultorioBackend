@@ -3,45 +3,27 @@
 </div>
 <br>
 <br>
-<div  class="form">
-  <select class="select" name="select">
-    <option value="identificaion">identificaion</option>
-    <option value="dia" selected>dia</option>
-    <option value="mes">mes</option>
-  </select>
-</div>
 <div class="form">
   <div class="identificacion">
     <input type="text" name="textoVerificacion" placeholder="digite...">
-  </div>
-  <div class="buscar">
-    <button type="button">Buscar</button>
   </div>
 </div>
 <div>
   <table>
     <thead>
-        <tr>
+        <tr *ngIf='citas && citas.length'>
             <th scope="col">#</th>
-            <th scope="col">identificación</th>
-            <th scope="col">Nombres </th>
-            <th scope="col">apellidos</th>
-            <th scope="col">direccion</th>
-            <th scope="col">año de nacimiento</th>
-            <th scope="col">correo</th>
-            <th scope="col">telefono</th>
+            <th scope="col">idCita</th>
+            <th scope="col">fechaCita </th>
+            <th scope="col">idPersona</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let cita of citas index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{cita.idCita}}</td>
+            <td>{{cita.fechaCita | date:'d/M/yyyy  h:mm a'}}</td>
+            <td>{{cita.idPersona}}</td>
         </tr>
     </tbody>
   </table>

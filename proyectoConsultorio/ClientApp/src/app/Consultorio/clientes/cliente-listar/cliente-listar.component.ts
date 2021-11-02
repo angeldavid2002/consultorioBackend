@@ -10,7 +10,6 @@ import { Persona } from '../../Models/Persona';
 })
 export class ClienteListarComponent implements OnInit {
   searchText:string;
-  searchTextTemp:string;
   personas:Persona[];
   constructor(private clienteService: ClienteService) { }
 
@@ -18,9 +17,6 @@ export class ClienteListarComponent implements OnInit {
     this.clienteService.get().subscribe(result => {
       this.personas = result;
     });
-  }
-  buscar(){
-    this.searchText=this.searchTextTemp;
   }
 
 }

@@ -38,4 +38,12 @@ export class ClienteService {
         catchError(this.handleErrorService.handleError<Persona>('Registrar Persona', null))
       );
   }
+  put(persona: Persona):Observable<Persona>{
+    return this.http.put<Persona>(this.baseUrl + 'api/Persona/',persona)
+      .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<Persona>('Registrar Persona', null))
+      );
+  }
+
 }

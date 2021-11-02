@@ -22,7 +22,7 @@ export class CitaService {
     return this.http.post<Cita>(this.baseUrl + 'api/Cita/',cita)
       .pipe(
         tap(_ => this.handleErrorService.log('datos enviados')),
-        catchError(this.handleErrorService.handleError<Cita>('Registrar Persona', null))
+        catchError(this.handleErrorService.handleError<Cita>('Registrar Cita', null))
       );
   }
 
@@ -33,5 +33,18 @@ export class CitaService {
         catchError(this.handleErrorService.handleError<string>('Eliminar cita', null))
       );
   }
-
+  put(cita: Cita):Observable<Cita>{
+    return this.http.put<Cita>(this.baseUrl + 'api/Cita/'+cita.idCita,cita)
+      .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<Cita>('Actualizar Cita', null))
+      );
+  }
+  get(): Observable<Cita[]> {
+    return this.http.get<Cita[]>(this.baseUrl + 'api/Cita')
+      .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<Cita[]>('Consulta Cita', null))
+      );
+  }
 }

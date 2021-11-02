@@ -8,6 +8,7 @@ import { Persona } from '../../Models/Persona';
 })
 export class ClienteRegistroComponent implements OnInit {
   persona: Persona;
+  fecha:string
   constructor(private clienteService:ClienteService) { }
   ngOnInit(): void {
     this.persona = new Persona();
