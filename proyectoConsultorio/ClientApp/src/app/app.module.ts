@@ -18,6 +18,10 @@ import { EliminarAgendaComponent } from './Consultorio/agenda/eliminar-agenda/el
 import { FiltroPacientePipe } from './Consultorio/pipe/filtro-paciente.pipe';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RegistrarHistoriaComponent } from './Consultorio/historia/registrar-historia/registrar-historia/registrar-historia.component';
+import { ConsultarHistoriaComponent } from './Consultorio/historia/consultar-historia/consultar-historia.component';
+import { EditarHistoriaComponent } from './Consultorio/historia/editar-historia/editar-historia.component';
+import { EliminarHistoriaComponent } from './Consultorio/historia/eliminar-historia/eliminar-historia.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { FormsModule } from '@angular/forms';
     ClienteListarComponent,
     EliminarAgendaComponent,
     FiltroPacientePipe,
+    RegistrarHistoriaComponent,
+    ConsultarHistoriaComponent,
+    EditarHistoriaComponent,
+    EliminarHistoriaComponent,
   ],
   imports: [
     

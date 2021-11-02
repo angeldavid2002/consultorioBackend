@@ -5930,19 +5930,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\angel\\.nuget\\packages\\": {}
+    "C:\\Users\\elpil\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Datos\\Datos.csproj",
+      "projectUniqueName": "C:\\Users\\elpil\\Documents\\GitHub\\consultorioBackend\\Datos\\Datos.csproj",
       "projectName": "Datos",
-      "projectPath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Datos\\Datos.csproj",
-      "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Datos\\obj\\",
+      "projectPath": "C:\\Users\\elpil\\Documents\\GitHub\\consultorioBackend\\Datos\\Datos.csproj",
+      "packagesPath": "C:\\Users\\elpil\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\elpil\\Documents\\GitHub\\consultorioBackend\\Datos\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\elpil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5956,8 +5961,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj": {
-              "projectPath": "C:\\Users\\angel\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj"
+            "C:\\Users\\elpil\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj": {
+              "projectPath": "C:\\Users\\elpil\\Documents\\GitHub\\consultorioBackend\\Entidad\\Entidad.csproj"
             }
           }
         }
@@ -6000,7 +6005,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
