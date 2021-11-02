@@ -67,7 +67,7 @@ namespace proyectoConsultorio.Controllers
         }
         // PUT: api/Cita/5
         [HttpPut("{citaId}")]
-        public ActionResult<String> Put(CitaInputModel citaInput,int citaId)
+        public ActionResult<CitaViewModel> Put(CitaInputModel citaInput,[FromRoute]int citaId)
         {
             cita citaReq = MapearCita(citaInput);
             citaReq.idCita=citaId;
@@ -76,8 +76,21 @@ namespace proyectoConsultorio.Controllers
             {
                 return BadRequest(response.Mensaje);
             }
-            return Ok(response.Cita);
+            var retorno = MapearConsultaCita(response.Cita);
+            return Ok(retorno);
         }
-
+        private CitaViewModel MapearConsultaCita(cita cita){
+            CitaViewModel citaView = new CitaViewModel();
+            citaView.idCita=cita.idCita;
+            citaView.idPersona=cita.persona.identificacion;
+            citaView.fechaCita=cita.fechaCita;
+            return citaView;
+        }
+        [HttpDelete("{identificacion}")]
+        public ActionResult<String> Delete([FromRoute]int identificacion)
+        {
+            String mensaje = citaservice.Eliminar(identificacion);
+            return mensaje;
+        }
     }
 }

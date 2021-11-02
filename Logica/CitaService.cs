@@ -37,15 +37,17 @@ namespace Logica
         public List<cita> ConsultarTodos()
         {
             List<cita> citas = _context.citas.ToList();
-            foreach (var cita in citas)
+            if (citas != null)
             {
-                cita.persona = _context.personas.Find(cita.idPersona);
+                foreach (var cita in citas)
+                {
+                    cita.persona = _context.personas.Find(cita.idPersona);
+                }
             }
             return citas;
         }
         public String EliminarReferencias(String identificacion)
         {
-            String mensaje="no paso";
             try
             {
                 var citas = this.ConsultarTodos();
@@ -55,7 +57,7 @@ namespace Logica
                     {
                         if (cita.idPersona.Equals(identificacion))
                         {
-                            mensaje=Eliminar(cita.idCita);
+                            Eliminar(cita.idCita);
                         }
                     }
                     return "Se borraron las citas asociadas con exito";
@@ -64,7 +66,7 @@ namespace Logica
             }
             catch (Exception ex)
             {
-                return "Error de la aplicacion: " + ex.Message+" "+mensaje;
+                return "Error de la aplicacion: " + ex.Message;
             }
 
         }
@@ -79,11 +81,11 @@ namespace Logica
                     _context.SaveChanges();
                     return "Se borro la cita con exito";
                 }
-                return "Lo sentimos la cita " + cita.idCita + " no se encuentra registrada";
+                return "Lo sentimos la cita " + id + " no se encuentra registrada";
             }
             catch (Exception ex)
             {
-                return "Error de la aplicacion: " + ex.Message + "";
+                return "Error de la aplicacion: " + ex.Message;
             }
         }
         public GuardarCitaResponse actualizar(cita citaNueva)
@@ -91,19 +93,20 @@ namespace Logica
             try
             {
                 var citaVieja = _context.citas.Find(citaNueva.idCita);
-                if(citaVieja!=null){
+                if (citaVieja != null)
+                {
                     citaVieja.fechaCita = citaNueva.fechaCita;
                     citaVieja.idPersona = citaNueva.idPersona;
-                    citaVieja.persona= _context.personas.Find(citaVieja.idPersona);
+                    citaVieja.persona = _context.personas.Find(citaVieja.idPersona);
                     _context.Update(citaVieja);
                     _context.SaveChanges();
-                    return new GuardarCitaResponse( "se actualizaron los datos de la persona con identificacion: "+citaVieja.idCita+" exitosamente",false);
+                    return new GuardarCitaResponse("se actualizaron los datos de la persona con identificacion: " + citaVieja.idCita + " exitosamente", false,citaVieja);
                 }
-                return new GuardarCitaResponse("Lo sentimos la identificacion "+citaVieja.idCita+" no se encuentra registrada"); 
+                return new GuardarCitaResponse("Lo sentimos la identificacion " + citaNueva.idCita + " no se encuentra registrada");
             }
             catch (Exception ex)
             {
-                return new GuardarCitaResponse("Error de la aplicacion: "+ex.Message+"");
+                return new GuardarCitaResponse("Error de la aplicacion: " + ex.Message + "");
             }
         }
     }
@@ -119,10 +122,16 @@ namespace Logica
             Error = true;
             Mensaje = mensaje;
         }
-        public GuardarCitaResponse(string mensaje,bool error)
+        public GuardarCitaResponse(string mensaje, bool error)
         {
             Error = error;
             Mensaje = mensaje;
+        }
+        public GuardarCitaResponse(string mensaje, bool error,cita cita)
+        {
+            Error = error;
+            Mensaje = mensaje;
+            this.Cita=cita;
         }
         public bool Error { get; set; }
         public string Mensaje { get; set; }

@@ -10,7 +10,6 @@ import { Persona } from '../../Models/Persona';
 })
 export class EliminarClienteComponent implements OnInit {
   searchText:string;
-  respuesta:String;
   persona:Persona;
   constructor(private clienteService: ClienteService) { }
 
@@ -18,9 +17,10 @@ export class EliminarClienteComponent implements OnInit {
   }
   eliminar(){
     this.clienteService.delete(this.searchText).subscribe(result => {
-      this.respuesta = result;
+      if(result!=null){
+        alert("registro borrado");
+      }
     });
-    alert(this.respuesta);
   }
 
 
