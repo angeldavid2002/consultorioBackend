@@ -27,9 +27,10 @@ namespace proyectoConsultorio.Controllers
         }
         // POST: api/Persona
         [HttpPost]
-        public ActionResult<PersonaViewModel> Post(persona persona)
+        public ActionResult<PersonaViewModel> Post(PersonaInputModel persona)
         {
-            var response = personaservice.Guardar(persona);
+            var personaMapeada = MapearPersona(persona);
+            var response = personaservice.Guardar(personaMapeada);
             if (response.Error) 
             {
                 return BadRequest(response.Mensaje);

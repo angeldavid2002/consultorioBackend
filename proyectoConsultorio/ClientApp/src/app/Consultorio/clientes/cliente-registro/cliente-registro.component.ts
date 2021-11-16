@@ -14,7 +14,7 @@ export class ClienteRegistroComponent implements OnInit {
     this.persona = new Persona();
   }
   GuardarPersona() {
-    this.extraerFecha();
+    console.log(this.persona);
     this.clienteService.post(this.persona).subscribe(result => {
         if(result!=null){
           alert('persona creada :'+JSON.stringify(result));
@@ -22,10 +22,5 @@ export class ClienteRegistroComponent implements OnInit {
           alert('no se pudo registrar la persona'+JSON.stringify(this.persona));
         }
     });
-  }
-  extraerFecha(){
-    if((document.getElementById("fecha-seleccion")as HTMLInputElement).value.toString()!="Invalid Date"){
-      this.persona.añoNacimiento= new Date((document.getElementById("fecha-seleccion")as HTMLInputElement).value);
-    }
   }
 }

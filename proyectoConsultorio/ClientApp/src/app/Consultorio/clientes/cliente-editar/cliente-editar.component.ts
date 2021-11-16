@@ -28,7 +28,7 @@ export class ClienteEditarComponent implements OnInit {
   }
   extraerFecha(){
     if((document.getElementById("fecha-seleccion")as HTMLInputElement).value.toString()!="Invalid Date"){
-      this.persona.añoNacimiento= new Date((document.getElementById("fecha-seleccion")as HTMLInputElement).value);
+      this.persona.anoNacimiento= new Date((document.getElementById("fecha-seleccion")as HTMLInputElement).value);
     }
   }
 

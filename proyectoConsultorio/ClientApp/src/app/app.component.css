@@ -4,6 +4,7 @@
     color: black;
     align-items: flex-end;
     text-anchor:initial;
+    margin-bottom: 10%;
 }
 .subcontenedor1{
     width: 200px;
@@ -13,9 +14,14 @@
 }
 .subcontenedor2{
     width: 86%;
+    height: 100%;
     align-items: flex-start;
     text-anchor: start;
     display:inline-block;
     float: left;
-    
+}
+.footer-contenedor{
+  float: inline-end;
+ position: relative;
+ bottom: 0px;
 }

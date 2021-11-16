@@ -1,14 +1,15 @@
+
 <div class="titulo">
 Registrar paciente
 </div>
 <br>
 <br>
-<form class="form" action="ejemplo.php" method="get">
+<div class="form">
     <input type="text" [(ngModel)]="persona.identificacion" name="identifiacion" placeholder="identifiacion...">
     <input type="text" [(ngModel)]="persona.nombre" name="nombre" placeholder="nombres...">
     <input type="text" [(ngModel)]="persona.apellido" name="apellidos" placeholder="apellidos..." />
     <input type="text" [(ngModel)]="persona.direccion" name="direccion" placeholder="direccion..." />
-    <input id="fecha-seleccion" type="datetime-local">
+    <input id="fecha-seleccion" [(ngModel)]="persona.anoNacimiento" type="datetime-local">
     <input type="text" [(ngModel)]="persona.correo" name="correo" placeholder="correo electrónico..." />
     <input type="text" [(ngModel)]="persona.telefono" name="telefono" placeholder="telefono..."/>
     <br>
@@ -18,4 +19,4 @@ Registrar paciente
     <div class="borrar">
       <button type="reset">Borrar</button>
     </div>
-</form>
+</div>
