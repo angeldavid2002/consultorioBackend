@@ -5,12 +5,12 @@ import { HandleHttpErrorService } from '../@base/handle-http-error.service';
 import { Persona } from '../Consultorio/Models/Persona';
 import { tap, catchError } from 'rxjs/operators';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
-
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
   baseUrl: string;
+
   constructor(
     private http: HttpClient,
     @Inject('BASE_URL') baseUrl: string,
@@ -38,12 +38,22 @@ export class ClienteService {
         catchError(this.handleErrorService.handleError<Persona>('Registrar Persona', null))
       );
   }
-  put(persona: Persona):Observable<Persona>{
-    return this.http.put<Persona>(this.baseUrl + 'api/Persona/',persona)
+  put(persona: Persona):Observable<respuesta>{
+    return this.http.put<respuesta>(this.baseUrl + 'api/Persona/',persona)
       .pipe(
         tap(_ => this.handleErrorService.log('datos enviados')),
-        catchError(this.handleErrorService.handleError<Persona>('Registrar Persona', null))
+        catchError(this.handleErrorService.handleError<respuesta>('Actualizar Persona', null))
       );
   }
-
+  actualizarEstado(identificacion: string,estado:string):Observable<string>{
+    return this.http.put<string>(this.baseUrl+'api/Persona/',identificacion+'/'+estado)
+      .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<string>('Actualizar Estado Persona', null))
+      );
+  }
+}
+class respuesta{
+  Error:boolean;
+  mensaje:string
 }

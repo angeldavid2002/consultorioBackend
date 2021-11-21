@@ -53,17 +53,25 @@ namespace proyectoConsultorio.Controllers
                 direccion= personaInput.direccion,
                 añoNacimiento = personaInput.anoNacimiento,
                 correo = personaInput.correo,
-                telefono= personaInput.telefono
+                telefono= personaInput.telefono,
+                estado=personaInput.estado
             };
             return persona;
         }
         // PUT: api/Persona/5
         [HttpPut]
-        public ActionResult<string> Put(PersonaInputModel personaInputModel)
+        public ActionResult<Response> Put(PersonaInputModel personaInputModel)
         {
             persona persona=MapearPersona(personaInputModel);
-            string mensaje=personaservice.actualizar(persona);
-            return Ok(mensaje);
+            var respuesta=personaservice.actualizar(persona);
+            return respuesta;
+            
+        }
+        [HttpPut("{identificacion}/{estado}")]
+        public ActionResult<string> Put(string identificacion, string estado)
+        {
+            var respuesta=personaservice.actualizarEstado(identificacion,estado);
+            return respuesta.mensaje;
         }
     }
 }

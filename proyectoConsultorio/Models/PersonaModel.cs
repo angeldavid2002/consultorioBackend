@@ -11,6 +11,9 @@ namespace proyectoConsultorio
         public DateTime anoNacimiento { get; set; }
         public String correo { get; set; }
         public String telefono { get; set; }
+        public string estado { get; set; }
+        
+        
     }
 
     public class PersonaViewModel:PersonaInputModel
@@ -27,6 +30,7 @@ namespace proyectoConsultorio
             anoNacimiento=persona.añoNacimiento;
             correo=persona.correo;
             telefono=persona.telefono;
+            estado=persona.estado;
         }
     }
 }

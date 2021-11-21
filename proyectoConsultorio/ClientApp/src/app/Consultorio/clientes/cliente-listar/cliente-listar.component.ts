@@ -14,8 +14,8 @@ export class ClienteListarComponent implements OnInit {
   personas:Persona[];
   buscar:boolean;
   persona:Persona;
+  mensaje:string;
   constructor(private clienteService: ClienteService) { }
-
   ngOnInit() {
     this.buscar=false;
     this.clienteService.get().subscribe(result => {
@@ -25,9 +25,10 @@ export class ClienteListarComponent implements OnInit {
   buscarPersonas(){
     this.buscar=true;
   }
-  cambiarEstado(persona:Variable){
-    if(persona!=null){
-      alert("xd");
-    }
+  cambiarEstado(persona:Persona){
+    this.clienteService.actualizarEstado(persona.identificacion,persona.estado).subscribe(result => {
+      this.mensaje=result.toString();
+    });
+    alert(this.mensaje);
   }
 }

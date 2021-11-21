@@ -17,9 +17,9 @@ export class ClienteRegistroComponent implements OnInit {
     console.log(this.persona);
     this.clienteService.post(this.persona).subscribe(result => {
         if(result!=null){
-          alert('persona creada :'+JSON.stringify(result));
+          alert('se creo la persona con identificacion :'+result.identificacion);
         }else{
-          alert('no se pudo registrar la persona'+JSON.stringify(this.persona));
+          alert('no se pudo registrar la persona con identificacion: '+this.persona.identificacion);
         }
     });
   }

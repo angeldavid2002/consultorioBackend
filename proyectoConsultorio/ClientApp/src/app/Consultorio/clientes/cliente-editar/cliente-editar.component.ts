@@ -9,7 +9,6 @@ import { Persona } from '../../Models/Persona';
 })
 export class ClienteEditarComponent implements OnInit {
   persona: Persona;
-  fecha: string;
   constructor(private clienteService:ClienteService) { }
 
   ngOnInit(): void {
@@ -17,19 +16,15 @@ export class ClienteEditarComponent implements OnInit {
   }
 
   EditarPersona() {
-    this.extraerFecha();
     this.clienteService.put(this.persona).subscribe(result => {
-        if(result!=null){
-          alert('persona actualizada :'+JSON.stringify(result));
+      if(result!=null){
+        if(result.Error==true){
+          alert('ocurrio un error inesperado: '+result.mensaje)
         }else{
-          alert('no se pudo actualizar la persona'+JSON.stringify(this.persona));
+          alert('mensaje: '+result.mensaje);
         }
+      }
     });
-  }
-  extraerFecha(){
-    if((document.getElementById("fecha-seleccion")as HTMLInputElement).value.toString()!="Invalid Date"){
-      this.persona.anoNacimiento= new Date((document.getElementById("fecha-seleccion")as HTMLInputElement).value);
-    }
   }
 
 }

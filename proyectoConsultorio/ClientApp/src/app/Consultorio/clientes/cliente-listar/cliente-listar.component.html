@@ -24,6 +24,7 @@
             <th scope="col">año de nacimiento</th>
             <th scope="col">correo</th>
             <th scope="col">telefono</th>
+            <th scope="col">estado</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -37,7 +38,8 @@
             <td>{{ persona.anoNacimiento | date:'d/M/yyyy  h:mm a'}}</td>
             <td>{{ persona.correo}}</td>
             <td>{{ persona.telefono}}</td>
-            <td><button (click)='cambiarEstado("persona")'>cambiar estado</button></td>
+            <td>{{ persona.estado}}</td>
+            <td><button (click)='cambiarEstado("persona.identifiacion,persona.estado")'>cambiar estado</button></td>
         </tr>
     </tbody>
   </table>

@@ -6,4 +6,5 @@ export class Persona{
   anoNacimiento:Date;
   correo:string;
   telefono:string;
+  estado:string;
 }

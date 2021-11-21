@@ -20,6 +20,7 @@ namespace Entidad
         public DateTime añoNacimiento { get; set; }
         public String correo { get; set; }
         public String telefono { get; set; }
+        public String estado { get; set; }
     }
     
 }

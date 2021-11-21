@@ -32,7 +32,7 @@ namespace Logica
             }
             catch (Exception e)
             {
-                return new GuardarPersonaResponse("error de la aplicacion: "+e.Message );
+                return new GuardarPersonaResponse("error de la aplicacion: "+e.Message);
             }
         }
         public List<persona> ConsultarTodos()
@@ -60,7 +60,7 @@ namespace Logica
                 return "Error de la aplicacion: "+ex.Message;
             }
         }
-        public String actualizar(persona personaNueva)
+        public Response actualizar(persona personaNueva)
         {
             try
             {
@@ -72,18 +72,56 @@ namespace Logica
                     personaVieja.telefono = personaNueva.telefono;
                     personaVieja.correo = personaNueva.correo;
                     personaVieja.direccion = personaNueva.direccion;
+                    personaVieja.estado=personaNueva.estado;
                     _context.personas.Update(personaVieja);
                     _context.SaveChanges();
-                    return "se actualizaron los datos de la persona con identificacion: "+personaVieja.identificacion+" exitosamente";
+                    return new Response("se actualizaron los datos de la persona con identificacion: "+personaVieja.identificacion+" exitosamente");
                 }
-                return "Lo sentimos la identificacion "+personaNueva.identificacion+" no se encuentra registrada"; 
+                return new Response("Lo sentimos la identificacion "+personaNueva.identificacion+" no se encuentra registrada"); 
             }
             catch (Exception ex)
             {
-                return "Error de la aplicacion: "+ex.Message+"";
+                return new Response("Error de la aplicacion: "+ex.Message+"",true);
+            }
+        }
+        public Response actualizarEstado(String identificacion,String estado){
+            try
+            {
+                var personaVieja = _context.personas.Find(identificacion);
+                if(personaVieja!=null){
+                    if(personaVieja.estado=="activo"){
+                        personaVieja.estado="inactivo";
+                   }else{
+                       personaVieja.estado="activo";
+                   }
+                    _context.personas.Update(personaVieja);
+                    _context.SaveChanges();
+                    return new Response("se actualizaron los datos de la persona con identificacion: "+personaVieja.identificacion+" exitosamente");
+                }
+                return new Response("Lo sentimos la identificacion "+identificacion+" no se encuentra registrada"); 
+            }
+            catch (System.Exception ex)
+            {
+                return new Response("Error de la aplicacion: "+ex.Message+"");
             }
         }
     }
+    public class Response{
+        public bool Error { get; set; }
+        public string mensaje { get; set; }
+        public Response(String error,bool verificacion)
+        {
+            Error=verificacion;
+            mensaje= error;
+        }
+        public Response(String mensaje)
+        {
+            this.mensaje=mensaje;
+            Error=false;
+        }
+        
+    }
+
     public class GuardarPersonaResponse 
     {
         public GuardarPersonaResponse(persona persona)

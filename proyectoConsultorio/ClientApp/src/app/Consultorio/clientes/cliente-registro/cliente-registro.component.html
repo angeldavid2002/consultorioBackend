@@ -12,6 +12,13 @@ Registrar paciente
     <input id="fecha-seleccion" [(ngModel)]="persona.anoNacimiento" type="datetime-local">
     <input type="text" [(ngModel)]="persona.correo" name="correo" placeholder="correo electrónico..." />
     <input type="text" [(ngModel)]="persona.telefono" name="telefono" placeholder="telefono..."/>
+    <p>estado:
+      <select class="comboEstado" name="estado" id="estado" [(ngModel)]="persona.estado">
+      <option value="activo">activo</option>
+      <option value="inactivo">inactivo</option>
+      </select>
+    </p>
+
     <br>
     <div class="registrar">
       <button type="button" (click)="GuardarPersona()" >registrar</button>
