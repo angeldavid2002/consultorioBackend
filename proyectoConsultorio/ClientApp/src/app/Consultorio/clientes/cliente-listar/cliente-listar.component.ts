@@ -25,10 +25,15 @@ export class ClienteListarComponent implements OnInit {
   buscarPersonas(){
     this.buscar=true;
   }
-  cambiarEstado(persona:Persona){
-    this.clienteService.actualizarEstado(persona.identificacion,persona.estado).subscribe(result => {
-      this.mensaje=result.toString();
+  cambiarEstado(identificacion:string,estado:string){
+    this.clienteService.actualizarEstado(identificacion,estado).subscribe(result => {
+      if(result!=null){
+        if(result.Error==true){
+          alert('ocurrio un error inesperado: '+result.mensaje)
+        }else{
+          alert('mensaje: '+result.mensaje);
+        }
+      }
     });
-    alert(this.mensaje);
   }
 }
