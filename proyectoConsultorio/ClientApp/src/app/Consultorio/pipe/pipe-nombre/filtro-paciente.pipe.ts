@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Persona } from '../Models/Persona';
+import { Persona } from '../../Models/Persona';
 
 @Pipe({
   name: 'filtroPaciente'

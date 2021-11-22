@@ -15,7 +15,7 @@ import { ClienteEditarComponent } from './Consultorio/clientes/cliente-editar/cl
 import { ClienteListarComponent } from './Consultorio/clientes/cliente-listar/cliente-listar.component';
 import { EliminarAgendaComponent } from './Consultorio/agenda/eliminar-agenda/eliminar-agenda.component';
 
-import { FiltroPacientePipe } from './Consultorio/pipe/filtro-paciente.pipe';
+import { FiltroPacientePipe } from './Consultorio/pipe/pipe-nombre/filtro-paciente.pipe';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegistrarHistoriaComponent } from './Consultorio/historia/registrar-historia/registrar-historia.component';

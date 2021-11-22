@@ -46,10 +46,8 @@ export class ClienteService {
       );
   }
   actualizarEstado(identificacion: string,estado:string):Observable<respuesta>{
-    var datos:string[];
-    datos.push(identificacion);
-    datos.push(estado);
-    return this.http.put<respuesta>(this.baseUrl+'api/Persona/',datos)
+    console.log('paso');
+    return this.http.put<respuesta>(this.baseUrl+'api/Persona/'+identificacion+'/'+estado,null)
       .pipe(
         tap(_ => this.handleErrorService.log('datos enviados')),
         catchError(this.handleErrorService.handleError<respuesta>('Actualizar Estado Persona', null))

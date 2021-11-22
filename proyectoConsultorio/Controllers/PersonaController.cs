@@ -67,10 +67,10 @@ namespace proyectoConsultorio.Controllers
             return respuesta;
             
         }
-        [HttpPut]
-        public ActionResult<Response> Put(string[] datos)
+        [HttpPut("{identificacion}/{confirmacion}")]
+        public ActionResult<Response> Put([FromRoute]String identificacion,[FromRoute]String confirmacion)
         {
-            var respuesta=personaservice.actualizarEstado(datos[0]);
+            var respuesta=personaservice.actualizarEstado(identificacion,confirmacion);
             return respuesta;
         }
         

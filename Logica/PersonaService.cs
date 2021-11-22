@@ -84,16 +84,16 @@ namespace Logica
                 return new Response("Error de la aplicacion: "+ex.Message+"",true);
             }
         }
-        public Response actualizarEstado(String identificacion,String estado){
+        public Response actualizarEstado(String identificacion,String confirmacion){
             try
             {
                 var personaVieja = _context.personas.Find(identificacion);
                 if(personaVieja!=null){
-                    if(personaVieja.estado=="activo"){
+                if(personaVieja.estado=="activo"){
                         personaVieja.estado="inactivo";
-                   }else{
+                    }else{
                        personaVieja.estado="activo";
-                   }
+                    }
                     _context.personas.Update(personaVieja);
                     _context.SaveChanges();
                     return new Response("se actualizaron los datos de la persona con identificacion: "+personaVieja.identificacion+" exitosamente");

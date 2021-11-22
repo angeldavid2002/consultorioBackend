@@ -9,6 +9,7 @@ import { ClienteRegistroComponent } from './Consultorio/clientes/cliente-registr
 import { EliminarClienteComponent } from './Consultorio/clientes/eliminar-cliente/eliminar-cliente.component';
 import { FooterComponent } from './Consultorio/footer/footer.component';
 import { HeaderComponent } from './Consultorio/header/header.component';
+import { RegistrarHistoriaComponent } from './Consultorio/historia/registrar-historia/registrar-historia.component';
 import { HomeComponent } from './Consultorio/home/home.component';
 import { SideBarComponent } from './Consultorio/side-bar/side-bar.component';
 
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'registrar-agenda',component:RegistrarAgendaComponent},
   {path: 'editar-cliente', component:ClienteEditarComponent},
   {path: 'listar-clientes',component:ClienteListarComponent},
-  {path: 'eliminar-agenda',component:EliminarAgendaComponent}
+  {path: 'eliminar-agenda',component:EliminarAgendaComponent},
+  {path: 'registrar-historia', component:RegistrarHistoriaComponent}
 ];
 
 @NgModule({
