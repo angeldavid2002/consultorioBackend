@@ -3,26 +3,53 @@
 </div>
 <br>
 <br>
+
+<div class="formId">
+
+  <input type="text" [(ngModel)]="searchText"  name="nombreConsulta" placeholder="digite nombre...">
+</div>
+<div class="btnBuscar">
+  <button (click)="buscarPersonas()">buscar</button>
+</div>
 <div class="form">
-  <input type="text" [(ngModel)]="persona.identificacion" name="identifiacion" placeholder="identifiacion...">
-  <input type="text" [(ngModel)]="persona.nombre" name="nombre" placeholder="nombres...">
-  <input type="text" [(ngModel)]="persona.apellido" name="apellidos" placeholder="apellidos..." />
-  <input type="text" [(ngModel)]="persona.direccion" name="direccion" placeholder="direccion..." />
-  <input id="fecha-seleccion" [(ngModel)]="persona.anoNacimiento" type="datetime-local">
-  <input type="text" [(ngModel)]="persona.correo" name="correo" placeholder="correo electrónico..." />
-  <input type="text" [(ngModel)]="persona.telefono" name="telefono" placeholder="telefono..." />
-  <p>estado:
-    <select class="comboEstado" name="estado" id="estado" [(ngModel)]="persona.estado">
+<div class="lista-personas">
+  <table class="table table-striped" *ngIf='personas && personas.length'>
+    <thead>
+      <tr>
+        <th scope="col">identificación</th>
+        <th scope="col">Nombres </th>
+        <th scope="col">apellidos</th>
+        <th scope="col">direccion</th>
+      </tr>
+    </thead>
+    <tbody *ngIf='buscar'>
+      <tr *ngFor="let persona of personas|filtroPaciente:searchText; index as i ">
+        <td>{{ persona.identificacion }}</td>
+        <td>{{ persona.nombre}}</td>
+        <td>{{ persona.apellido}}</td>
+        <td>{{ persona.direccion}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<input type="text" [(ngModel)]="persona.identificacion" name="identifiacion" placeholder="identificacion...">
+<input type="text" [(ngModel)]="persona.nombre" name="nombre" placeholder="nombres...">
+<input type="text" [(ngModel)]="persona.apellido" name="apellidos" placeholder="apellidos..." />
+<input type="text" [(ngModel)]="persona.direccion" name="direccion" placeholder="direccion..." />
+<input id="fecha-seleccion" [(ngModel)]="persona.anoNacimiento" type="datetime-local">
+<input type="text" [(ngModel)]="persona.correo" name="correo" placeholder="correo electrónico..." />
+<input type="text" [(ngModel)]="persona.telefono" name="telefono" placeholder="telefono..." />
+<p>estado:
+  <select class="comboEstado" name="estado" id="estado" [(ngModel)]="persona.estado">
     <option value="activo">activo</option>
     <option value="inactivo">inactivo</option>
-    </select>
-  </p>
+  </select>
+</p>
 
-  <br>
-  <div class="enviar">
-    <button type="button" (click)="EditarPersona()">Enviar</button>
-  </div>
-  <div class="borrar">
-    <button type="reset">Borrar</button>
-  </div>
+<div class="enviar">
+  <button type="button" (click)="EditarPersona()">Enviar</button>
+</div>
+<div class="borrar">
+  <button type="reset">Borrar</button>
+</div>
 </div>

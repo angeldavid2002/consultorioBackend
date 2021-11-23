@@ -21,7 +21,6 @@
     float: left;
 }
 .footer-contenedor{
-  float: inline-end;
- position: relative;
- bottom: 0px;
+  clear:both;
+  bottom: 0px;
 }

@@ -1,4 +1,5 @@
-input, select {
+input,
+select {
   width: 60%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -7,44 +8,68 @@ input, select {
   border-radius: 5px;
   box-sizing: border-box;
 }
-.form{
-text-align: center;
+
+.form {
+  text-align: center;
 }
-.titulo{
-margin-top: 6px;
-font-size: 15px;
-width: 100%;
-background-color: #2E4053;
-color: white;
-border-radius: 5px;
-padding-left: 10px;
-padding-top: 5px;
-padding-bottom: 5px;
-display: inline-block;
+.titulo {
+  margin-top: 6px;
+  font-size: 15px;
+  width: 100%;
+  background-color: #2E4053;
+  color: white;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
 }
-button{
-background-color: #2E4053;
-color: white;
-border: 2px solid #2E4053;
-font-size: 15px;
-border-radius: 5px;
-height: 40px;
-width: 80px;
-margin-top: 6px;
-text-align: center;
-transition-duration: 0.8s;
+
+button {
+  background-color: #2E4053;
+  color: white;
+  border: 2px solid #2E4053;
+  font-size: 15px;
+  border-radius: 5px;
+  height: 40px;
+  width: 80px;
+  margin-top: 6px;
+  text-align: center;
+  transition-duration: 0.8s;
 }
-.enviar{
-display: inline-block;
+
+.enviar {
+  display: inline-block;
 }
-.borrar{
-margin-left: 10px;
-display: inline-block;
+
+.borrar {
+  margin-left: 10px;
+  display: inline-block;
 }
-button:hover{
-background-color: white;
-color: #2E4053;
+
+button:hover {
+  background-color: white;
+  color: #2E4053;
 }
-.comboEstado{
+
+.comboEstado {
   width: 55%;
+}
+.formId{
+  margin-left: 200px;
+  text-align: center;
+  display: inline;
+}
+.btnBuscar{
+  display: inline-block;
+}
+
+.lista-personas {
+  text-align: center;
+  width: 60%;
+  height: 150px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -5,22 +5,19 @@
       <button class="btnopciones" (click)='alternarPanel("contenedorpacientes")'>pacientes</button><br>
       <div class="contenedores" id="contenedorpacientes">
         <button class="btnsubopciones" [routerLink]="['/registrar-cliente']">registrar paciente</button>
-        <button class="btnsubopciones" [routerLink]="['/eliminar-cliente']">eliminar paciente</button>
         <button class="btnsubopciones" [routerLink]="['/editar-cliente']">editar paciente</button>
         <button class="btnsubopciones" [routerLink]="['/listar-clientes']">listado de pacientes</button>
       </div>
       <button class="btnopciones" (click)='alternarPanel("contenedorAgendas")'>agendas</button><br>
       <div class="contenedores" id="contenedorAgendas">
         <button class="btnsubopciones" [routerLink]="['/registrar-agenda']">agendar citas</button>
-        <button class="btnsubopciones" [routerLink]="['/eliminar-agenda']">eliminar cita</button>
         <button class="btnsubopciones" [routerLink]="['/consultar-agenda']">ver agenda</button>
       </div>
       <button class="btnopciones" (click)='alternarPanel("contenedorHistoria")'>historia clinica</button><br>
       <div class="contenedores" id="contenedorHistoria">
-        <button class="btnsubopciones">ver historia de pacientes</button>
-        <button class="btnsubopciones">registrar historia de paciente</button>
-        <button class="btnsubopciones">editar historia de paciente</button>
-        <button class="btnsubopciones">eliminar historia de paciente</button>
+        <button class="btnsubopciones" [routerLink]="['/registrar-historia']">registrar historia de paciente</button>
+        <button class="btnsubopciones" [routerLink]="['/consultar-historia']">ver historia de pacientes</button>
+        <button class="btnsubopciones" [routerLink]="['/editar-historia']">editar historia de paciente</button>
       </div>
     </div>
   </ng-sidebar>

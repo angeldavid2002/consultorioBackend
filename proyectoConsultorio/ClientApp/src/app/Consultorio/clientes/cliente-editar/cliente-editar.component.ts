@@ -10,11 +10,19 @@ import { Persona } from '../../Models/Persona';
 export class ClienteEditarComponent implements OnInit {
   persona: Persona;
   constructor(private clienteService:ClienteService) { }
-
+  personas:Persona[];
+  buscar:boolean;
+  searchText:string;
   ngOnInit(): void {
     this.persona = new Persona();
+    this.buscar=false;
   }
-
+  buscarPersonas(){
+    this.buscar=true;
+    this.clienteService.get().subscribe(result => {
+      this.personas = result;
+    });
+  }
   EditarPersona() {
     this.clienteService.put(this.persona).subscribe(result => {
       if(result!=null){

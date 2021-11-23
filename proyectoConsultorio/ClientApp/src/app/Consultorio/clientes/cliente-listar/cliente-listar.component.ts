@@ -18,12 +18,13 @@ export class ClienteListarComponent implements OnInit {
   constructor(private clienteService: ClienteService) { }
   ngOnInit() {
     this.buscar=false;
+  }
+  buscarPersonas(){
+    this.searchText=this.persona.identificacion;
+    this.buscar=true;
     this.clienteService.get().subscribe(result => {
       this.personas = result;
     });
-  }
-  buscarPersonas(){
-    this.buscar=true;
   }
   cambiarEstado(identificacion:string,estado:string){
     this.clienteService.actualizarEstado(identificacion,estado).subscribe(result => {
