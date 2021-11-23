@@ -20,7 +20,6 @@ export class ClienteListarComponent implements OnInit {
     this.buscar=false;
   }
   buscarPersonas(){
-    this.searchText=this.persona.identificacion;
     this.buscar=true;
     this.clienteService.get().subscribe(result => {
       this.personas = result;

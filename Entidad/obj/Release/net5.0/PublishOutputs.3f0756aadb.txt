@@ -1,0 +1,3 @@
+C:\Users\angel\Documents\GitHub\consultorioBackend\publish\Entidad.dll
+C:\Users\angel\Documents\GitHub\consultorioBackend\publish\Entidad.deps.json
+C:\Users\angel\Documents\GitHub\consultorioBackend\publish\Entidad.pdb
