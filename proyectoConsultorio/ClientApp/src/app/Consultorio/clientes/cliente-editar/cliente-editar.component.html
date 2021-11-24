@@ -19,7 +19,7 @@
         <th scope="col">identificación</th>
         <th scope="col">Nombres </th>
         <th scope="col">apellidos</th>
-        <th scope="col">direccion</th>
+        <th scope="col">llenar</th>
       </tr>
     </thead>
     <tbody *ngIf='buscar'>
@@ -27,7 +27,7 @@
         <td>{{ persona.identificacion }}</td>
         <td>{{ persona.nombre}}</td>
         <td>{{ persona.apellido}}</td>
-        <td>{{ persona.direccion}}</td>
+        <td><button (click)="llenarDatos(persona)">llenar datos</button></td>
       </tr>
     </tbody>
   </table>

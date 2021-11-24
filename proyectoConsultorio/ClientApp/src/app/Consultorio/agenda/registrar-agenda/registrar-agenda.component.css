@@ -7,10 +7,6 @@ input, select {
   border-radius: 5px;
   box-sizing: border-box;
 }
-.registrar{
-  padding: 10px;
-  display: inline-block;
-}
 .fecha{
   display: inline;
 }
@@ -56,20 +52,34 @@ th {
   background-color: #2E4053;
   color: white;
 }
-table {
-  margin-left: 5%;
-  border-collapse: collapse;
-  width: 80%;
-}
 .form{
   text-align: center;
 
 }
-tr:nth-child(even){background-color: #b4b4b4}
 .agendar{
-  display: inline-block;
+  display: inline;
 }
 .borrar{
   margin-left: 10px;
   display: inline-block;
+}
+.formId{
+  text-align: center;
+  display: inline;
+}
+.btnBuscar{
+  display: inline-block;
+}
+
+.lista-personas {
+  text-align: center;
+  width: 60%;
+  height: 150px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form {
+  text-align: center;
 }

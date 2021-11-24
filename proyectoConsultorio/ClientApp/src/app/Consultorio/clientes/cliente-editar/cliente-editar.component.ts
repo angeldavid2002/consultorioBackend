@@ -17,6 +17,9 @@ export class ClienteEditarComponent implements OnInit {
     this.persona = new Persona();
     this.buscar=false;
   }
+  llenarDatos(personaBuscada:Persona){
+    this.persona=personaBuscada;
+  }
   buscarPersonas(){
     this.buscar=true;
     this.clienteService.get().subscribe(result => {

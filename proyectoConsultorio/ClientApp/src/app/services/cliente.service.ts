@@ -46,7 +46,6 @@ export class ClienteService {
       );
   }
   actualizarEstado(identificacion: string,estado:string):Observable<respuesta>{
-    console.log('paso');
     return this.http.put<respuesta>(this.baseUrl+'api/Persona/'+identificacion+'/'+estado,null)
       .pipe(
         tap(_ => this.handleErrorService.log('datos enviados')),
