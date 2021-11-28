@@ -40,7 +40,7 @@ export class HistoriaService {
       );
   }
   put(historia: Historia):Observable<respuesta>{
-    return this.http.put<respuesta>(this.baseUrl + 'api/Historia/'+historia.idHistoria,historia)
+    return this.http.put<respuesta>(this.baseUrl + 'api/Historia/',historia)
       .pipe(
         tap(_ => this.handleErrorService.log('datos enviados')),
         catchError(this.handleErrorService.handleError<respuesta>('Actualizar Historia', null))

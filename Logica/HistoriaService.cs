@@ -58,7 +58,7 @@ namespace Logica
                 return "Error de la aplicacion: " + ex.Message;
             }
         }
-        public GuardarHistoriaResponse actualizar(historia historiaNueva)
+        public Response actualizar(historia historiaNueva)
         {
             try
             {
@@ -72,13 +72,13 @@ namespace Logica
                     historiaVieja.planOrientacion = historiaNueva.planOrientacion;
                     _context.historias.Update(historiaVieja);
                     _context.SaveChanges();
-                    return new GuardarHistoriaResponse("se actualizaron los datos de la historia con identificacion: " + historiaVieja.idHistoria + " exitosamente", false);
+                    return new Response("se actualizaron los datos de la historia con identificacion: " + historiaVieja.idHistoria + " exitosamente", false);
                 }
-                return new GuardarHistoriaResponse("Lo sentimos la identificacion " + historiaNueva.idHistoria + " no se encuentra registrada");
+                return new Response("Lo sentimos la identificacion " + historiaNueva.idHistoria + " no se encuentra registrada");
             }
             catch (Exception ex)
             {
-                return new GuardarHistoriaResponse("Error de la aplicacion: " + ex.Message + "");
+                return new Response("Error de la aplicacion: " + ex.Message + "");
             }
         }
 

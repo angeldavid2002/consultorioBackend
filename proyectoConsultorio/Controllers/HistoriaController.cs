@@ -71,17 +71,26 @@ namespace proyectoConsultorio.Controllers
             };
             return historia;
         }
-        [HttpPut("{historiaId}")]
-        public ActionResult<String> Put(HistoriaInputModel historiaInput,[FromRoute]int historiaId)
+        [HttpPut]
+        public ActionResult<Response> Put(HistoriaViewModel historiaViewModel)
         {
-            historia historiaReq = MapearHistoria(historiaInput);
-            historiaReq.idHistoria=historiaId;
+            historia historiaReq = MapearHistoriaView(historiaViewModel);
             var response = historiaService.actualizar(historiaReq);
-            if (response.Error) 
-            {
-                return BadRequest(response.Mensaje);
-            }
-            return Ok(response.Mensaje);
+            return response;
+        }
+        private historia MapearHistoriaView(HistoriaViewModel historiaViewModel)
+        {
+            var historia = new historia{
+                idPaciente=historiaViewModel.idPaciente,
+                idHistoria=historiaViewModel.idHistoria,
+                motivoConsulta=historiaViewModel.motivoConsulta,
+                antecedentesPaciente=historiaViewModel.antecedentesPaciente,
+                diagnostico=historiaViewModel.diagnostico,
+                planOrientacion=historiaViewModel.planOrientacion,
+                persona=new persona{
+                },
+            };
+            return historia;
         }
         [HttpDelete("{identificacion}")]
         public ActionResult<String> Delete([FromRoute]int identificacion)

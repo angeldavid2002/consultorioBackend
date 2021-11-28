@@ -38,11 +38,11 @@ export class EditarHistoriaComponent implements OnInit {
     });
   }
   editarHistoria(){
-    this.historiaService.post(this.historia).subscribe(result => {
+    this.historiaService.put(this.historia).subscribe(result => {
       if(result!=null){
-        alert('se edito la historia');
+        alert(result.mensaje);
       }else{
-        alert('no se pudo editar la historia con id: '+this.historia.idHistoria);
+        alert('Error inesperado');
       }
   });
   }

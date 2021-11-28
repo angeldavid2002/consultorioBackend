@@ -30,3 +30,21 @@ button{
   text-align: center;
   transition-duration: 0.8s;
 }
+.lista-historias{
+  text-align: center;
+  width: 60%;
+  height: 150px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lista-personas {
+  text-align: center;
+  width: 90%;
+  height: 150px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
