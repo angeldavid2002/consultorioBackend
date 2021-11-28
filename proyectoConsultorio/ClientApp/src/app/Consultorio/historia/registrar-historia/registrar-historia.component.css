@@ -1,0 +1,51 @@
+button{
+  background-color: #2E4053;
+  color: white;
+  border: 2px solid #2E4053;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 6px;
+  text-align: center;
+  transition-duration: 0.8s;
+}
+.formId{
+  text-align: center;
+  display: inline;
+}
+.btnBuscar{
+  display: inline-block;
+}
+.lista-personas {
+  text-align: center;
+  width: 60%;
+  height: 150px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form {
+  text-align: center;
+}
+input, select {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.titulo{
+  margin-top: 6px;
+  font-size: 15px;
+  width: 100%;
+  background-color: #2E4053;
+  color: white;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  text-align: left;
+}

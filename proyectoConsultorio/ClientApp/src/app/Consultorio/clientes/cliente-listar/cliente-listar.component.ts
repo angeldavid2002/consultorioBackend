@@ -14,7 +14,7 @@ export class ClienteListarComponent implements OnInit {
   personas:Persona[];
   buscar:boolean;
   persona:Persona;
-  mensaje:string;
+  
   constructor(private clienteService: ClienteService) { }
   ngOnInit() {
     this.buscar=false;

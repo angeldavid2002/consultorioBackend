@@ -37,6 +37,7 @@ namespace proyectoConsultorio.Controllers
             {
                 HistoriaViewModel historiaMap=new HistoriaViewModel();
                 historiaMap.idHistoria=historia.idHistoria;
+                historiaMap.idPaciente=historia.idPaciente;
                 historiaMap.persona=historia.persona;
                 historiaMap.motivoConsulta=historia.motivoConsulta;
                 historiaMap.antecedentesPaciente=historia.antecedentesPaciente;

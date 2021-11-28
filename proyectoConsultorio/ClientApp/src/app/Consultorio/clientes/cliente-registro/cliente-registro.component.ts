@@ -14,7 +14,6 @@ export class ClienteRegistroComponent implements OnInit {
     this.persona = new Persona();
   }
   GuardarPersona() {
-    console.log(this.persona);
     this.clienteService.post(this.persona).subscribe(result => {
         if(result!=null){
           alert('se creo la persona con identificacion :'+result.identificacion);

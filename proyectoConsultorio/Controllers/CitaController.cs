@@ -39,6 +39,7 @@ namespace proyectoConsultorio.Controllers
                 citaMap.idCita=cita.idCita;
                 citaMap.idPersona=cita.persona.identificacion;
                 citaMap.fechaCita=cita.fechaCita;
+                citaMap.persona=cita.persona;
                 citasConsultadas.Add(citaMap);
             }
             return citasConsultadas;

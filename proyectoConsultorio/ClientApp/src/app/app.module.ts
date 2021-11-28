@@ -12,14 +12,17 @@ import { ConsultarAgendaComponent } from './Consultorio/agenda/consultar-agenda/
 import { RegistrarAgendaComponent } from './Consultorio/agenda/registrar-agenda/registrar-agenda.component';
 import { ClienteEditarComponent } from './Consultorio/clientes/cliente-editar/cliente-editar.component';
 import { ClienteListarComponent } from './Consultorio/clientes/cliente-listar/cliente-listar.component';
-
+import { MatStepperModule} from '@angular/material/stepper';
 import { FiltroPacientePipe } from './Consultorio/pipe/pipe-nombre/filtro-paciente.pipe';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { RegistrarHistoriaComponent } from './Consultorio/historia/registrar-historia/registrar-historia.component';
 import { ConsultarHistoriaComponent } from './Consultorio/historia/consultar-historia/consultar-historia.component';
 import { EditarHistoriaComponent } from './Consultorio/historia/editar-historia/editar-historia.component';
 import { LoginComponent } from './Consultorio/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -40,14 +43,22 @@ import { LoginComponent } from './Consultorio/login/login.component';
     LoginComponent,
   ],
   imports: [
-
+    MatStepperModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    SidebarModule.forRoot()
+    SidebarModule.forRoot(),
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,6 +16,7 @@
             <th scope="col">idCita</th>
             <th scope="col">fechaCita </th>
             <th scope="col">idPersona</th>
+            <th scope="col">nombre</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,7 @@
             <td>{{cita.idCita}}</td>
             <td>{{cita.fechaCita | date:'d/M/yyyy  h:mm a'}}</td>
             <td>{{cita.idPersona}}</td>
+            <td>{{cita.persona.nombre}}</td>
         </tr>
     </tbody>
   </table>

@@ -11,10 +11,10 @@ namespace proyectoConsultorio.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PersonaController:ControllerBase
+    public class PersonaController : ControllerBase
     {
         private readonly PersonaService personaservice;
-        public IConfiguration configuration { get;}
+        public IConfiguration configuration { get; }
         public PersonaController(ConsultorioContext _context)
         {
             personaservice = new PersonaService(_context);
@@ -22,8 +22,34 @@ namespace proyectoConsultorio.Controllers
         [HttpGet]
         public IEnumerable<PersonaViewModel> Gets()
         {
-            var personas = personaservice.ConsultarTodos().Select(p=> new PersonaViewModel(p));
+            var personas = personaservice.ConsultarTodos().Select(p => new PersonaViewModel(p));
             return personas;
+        }
+        [HttpGet("{identificacion}")]
+        public GuardarPersonaViewResponse Get([FromRoute] string identificacion)
+        {
+            var persona = personaservice.ConsultarUno(identificacion);
+            if(persona.Error){
+                return new GuardarPersonaViewResponse(persona.Mensaje);
+            }else{
+                return new GuardarPersonaViewResponse(persona.Persona);
+            }
+        }
+        public class GuardarPersonaViewResponse
+        {
+            public GuardarPersonaViewResponse(persona persona)
+            {
+                Error = false;
+                Persona = new PersonaViewModel(persona);
+            }
+            public GuardarPersonaViewResponse(string mensaje)
+            {
+                Error = true;
+                Mensaje = mensaje;
+            }
+            public bool Error { get; set; }
+            public string Mensaje { get; set; }
+            public PersonaViewModel Persona { get; set; }
         }
         // POST: api/Persona
         [HttpPost]
@@ -31,14 +57,14 @@ namespace proyectoConsultorio.Controllers
         {
             var personaMapeada = MapearPersona(persona);
             var response = personaservice.Guardar(personaMapeada);
-            if (response.Error) 
+            if (response.Error)
             {
                 return BadRequest(response.Mensaje);
             }
             return Ok(response.Persona);
-        } 
+        }
         [HttpDelete("{identificacion}")]
-        public ActionResult<String> Delete([FromRoute]String identificacion)
+        public ActionResult<String> Delete([FromRoute] String identificacion)
         {
             String mensaje = personaservice.Eliminar(identificacion);
             return mensaje;
@@ -50,11 +76,11 @@ namespace proyectoConsultorio.Controllers
                 identificacion = personaInput.identificacion,
                 nombre = personaInput.nombre,
                 apellido = personaInput.apellido,
-                direccion= personaInput.direccion,
+                direccion = personaInput.direccion,
                 añoNacimiento = personaInput.anoNacimiento,
                 correo = personaInput.correo,
-                telefono= personaInput.telefono,
-                estado=personaInput.estado
+                telefono = personaInput.telefono,
+                estado = personaInput.estado
             };
             return persona;
         }
@@ -62,18 +88,18 @@ namespace proyectoConsultorio.Controllers
         [HttpPut]
         public ActionResult<Response> Put(PersonaInputModel personaInputModel)
         {
-            persona persona=MapearPersona(personaInputModel);
-            var respuesta=personaservice.actualizar(persona);
+            persona persona = MapearPersona(personaInputModel);
+            var respuesta = personaservice.actualizar(persona);
             return respuesta;
-            
+
         }
         [HttpPut("{identificacion}/{confirmacion}")]
-        public ActionResult<Response> Put([FromRoute]String identificacion,[FromRoute]String confirmacion)
+        public ActionResult<Response> Put([FromRoute] String identificacion, [FromRoute] String confirmacion)
         {
-            var respuesta=personaservice.actualizarEstado(identificacion,confirmacion);
+            var respuesta = personaservice.actualizarEstado(identificacion, confirmacion);
             return respuesta;
         }
-        
+
     }
-    
+
 }

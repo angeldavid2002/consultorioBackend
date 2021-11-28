@@ -60,7 +60,12 @@ button:hover{
 .lista-personas{
   height: 100%;
   overflow-y: scroll;
+  overflow-x: auto;
 }
 .btnBuscar{
   display: inline-block;
+}
+.boton_llenar{
+  height: auto;
+  width: auto;
 }

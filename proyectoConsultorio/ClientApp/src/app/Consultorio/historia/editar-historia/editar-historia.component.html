@@ -1,1 +1,125 @@
-<p>editar-historia works!</p>
+<div class="form">
+  <div class="titulo">
+    editar historia
+  </div>
+</div>
+
+<mat-horizontal-stepper>
+
+  <mat-step label="id historia">
+
+    <div class="form">
+      <div class="identificacion">
+        <input type="text" id="identificacion" [(ngModel)]="searchText" placeholder="nombre...">
+      </div>
+      <div class="btnBuscar">
+        <button (click)="buscarHistorias()">buscar</button>
+      </div>
+    </div>
+
+    <div class="lista-historias">
+      <table class="table table-striped" *ngIf='historias && historias.length'>
+        <thead>
+          <tr>
+            <th scope="col">id historia</th>
+            <th scope="col">id paciente </th>
+            <th scope="col">acciones</th>
+          </tr>
+        </thead>
+        <tbody *ngIf='buscar'>
+          <tr *ngFor="let historia of historias; index as i ">
+            <td>{{ historia.idHistoria }}</td>
+            <td>{{ historia.persona.identificacion}}</td>
+            <td><button class="boton_llenar" (click)="asignarHistoria(historia)">asignar historia</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </mat-step>
+
+  <mat-step label="identificacion">
+    <div class="form">
+      <div class="formId">
+        <input type="text" [(ngModel)]="searchText" name="nombreConsulta" placeholder="digite nombre...">
+      </div>
+
+      <div class="btnBuscar">
+        <button (click)="buscarPersonas()">buscar</button>
+      </div>
+    </div>
+
+    <div class="form">
+      <div class="lista-personas">
+        <table class="table table-striped" *ngIf='personas && personas.length'>
+          <thead>
+            <tr>
+              <th scope="col">identificación</th>
+              <th scope="col">Nombres </th>
+              <th scope="col">apellidos</th>
+              <th scope="col">llenar</th>
+            </tr>
+          </thead>
+          <tbody *ngIf='buscar'>
+            <tr *ngFor="let persona of personas|filtroPaciente:searchText; index as i ">
+              <td>{{ persona.identificacion }}</td>
+              <td>{{ persona.nombre}}</td>
+              <td>{{ persona.apellido}}</td>
+              <td><button (click)="llenarDatos(persona.identificacion)">llenar datos</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="form">
+      <input type="text" [(ngModel)]="historia.idPaciente" name="identificacion" placeholder="identificacion...">
+    </div>
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+
+  </mat-step>
+
+  <mat-step label="motivo de la consulta">
+    <div class="form">
+      <textarea [(ngModel)]="historia.motivoConsulta" name="motivo" placeholder="motivo..." cols="120" rows="10"></textarea>
+    </div>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step label="antecedentes">
+    <div class="form">
+      <textarea [(ngModel)]="historia.antecedentesPaciente" name="antecedentes" placeholder="antecedentes..." cols="120" rows="10"></textarea>
+    </div>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step label="diagnostico">
+    <div class="form">
+      <textarea [(ngModel)]="historia.diagnostico" name="diagnostico" placeholder="diagnostico..." cols="120" rows="10"></textarea>
+    </div>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step label="plan de horientacion">
+    <div class="form">
+      <textarea [(ngModel)]="historia.planOrientacion" name="planOrientacion" placeholder="planOrientacion..." cols="120" rows="10"></textarea>
+    </div>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button (click)="editarHistoria()">registrar historia</button>
+      <button (click)="limpiar()">reset</button>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>

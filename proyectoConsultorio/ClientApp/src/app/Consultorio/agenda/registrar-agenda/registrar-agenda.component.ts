@@ -14,7 +14,6 @@ export class RegistrarAgendaComponent implements OnInit {
   cita:Cita;
   buscar:boolean;
   personas:Persona[];
-  persona:Persona;
 
   constructor(private citaService:CitaService,private clienteService:ClienteService) { }
 

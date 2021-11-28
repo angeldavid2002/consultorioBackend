@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { HandleHttpErrorService } from '../@base/handle-http-error.service';
 import { Persona } from '../Consultorio/Models/Persona';
 import { tap, catchError } from 'rxjs/operators';
-import { Variable } from '@angular/compiler/src/render3/r3_ast';
 @Injectable({
   providedIn: 'root'
 })
@@ -52,8 +51,20 @@ export class ClienteService {
         catchError(this.handleErrorService.handleError<respuesta>('Actualizar Estado Persona', null))
       );
   }
+  consultarUno(identificacion: string):Observable<personaResponse>{
+    return this.http.get<personaResponse>(this.baseUrl + 'api/Persona/'+identificacion)
+      .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<personaResponse>('Consulta Persona', null))
+      );
+  }
 }
 class respuesta{
   Error:boolean;
-  mensaje:string
+  mensaje:string;
+}
+class personaResponse{
+  Error:boolean;
+  Mensaje:string;
+  persona:Persona;
 }

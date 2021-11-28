@@ -13,7 +13,9 @@ namespace proyectoConsultorio
         public int idCita { get; set; }
         public DateTime fechaCita { get; set; }
         public string idPersona { get; set; }
+        public persona persona { get; set; }
         
+
         
         public CitaViewModel(){
 

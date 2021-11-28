@@ -1,1 +1,112 @@
-<p>consultar-historia works!</p>
+<div class="form">
+  <div class="titulo">
+    consultar historia
+  </div>
+</div>
+
+<div class="form">
+  <div class="identificacion">
+    <input type="text" id="identificacion" [(ngModel)]="searchText" placeholder="nombre...">
+  </div>
+  <div class="btnBuscar">
+    <button (click)="buscarHistorias()">buscar</button>
+  </div>
+</div>
+
+<div class="lista-historias">
+  <table class="table table-striped" *ngIf='historias && historias.length'>
+    <thead>
+      <tr>
+        <th scope="col">id historia</th>
+        <th scope="col">id paciente </th>
+        <th scope="col">acciones</th>
+      </tr>
+    </thead>
+    <tbody *ngIf='buscar'>
+      <tr *ngFor="let historia of historias; index as i ">
+        <td>{{ historia.idHistoria }}</td>
+        <td>{{ historia.persona.identificacion}}</td>
+        <td><button class="boton_llenar" (click)="consultarPersonaHistoria(historia)">Consultar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="datos">
+  <table class="table table-striped" *ngIf='consultaPersona'>
+    <thead>
+      <tr>
+        <th scope="col">identificación</th>
+        <th scope="col">Nombres </th>
+        <th scope="col">apellidos</th>
+        <th scope="col">direccion</th>
+        <th scope="col">año de nacimiento</th>
+        <th scope="col">correo</th>
+        <th scope="col">telefono</th>
+        <th scope="col">estado</th>
+      </tr>
+    </thead>
+    <tbody *ngIf='buscar'>
+      <tr>
+        <td>{{ persona.identificacion }}</td>
+        <td>{{ persona.nombre}}</td>
+        <td>{{ persona.apellido}}</td>
+        <td>{{ persona.direccion}}</td>
+        <td>{{ persona.anoNacimiento | date:'d/M/yyyy  h:mm a'}}</td>
+        <td>{{ persona.correo}}</td>
+        <td>{{ persona.telefono}}</td>
+        <td>{{ persona.estado}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="form" *ngIf='consultaPersona'>
+  <mat-horizontal-stepper>
+
+    <mat-step label="motivo de la consulta">
+      <div class="form">
+        <textarea [(ngModel)]="historia.motivoConsulta" name="motivo" placeholder="motivo..." cols="120"
+          rows="10" readonly></textarea>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="antecedentes">
+      <div class="form">
+        <textarea [(ngModel)]="historia.antecedentesPaciente" name="antecedentes" placeholder="antecedentes..."
+          cols="120" rows="10" readonly></textarea>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="diagnostico">
+      <div class="form">
+        <textarea [(ngModel)]="historia.diagnostico" name="diagnostico" placeholder="diagnostico..." cols="120"
+          rows="10" readonly></textarea>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="plan de horientacion">
+      <div class="form">
+        <textarea [(ngModel)]="historia.planOrientacion" name="planOrientacion" placeholder="planOrientacion..."
+          cols="120" rows="10" readonly></textarea>
+      </div>
+      
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>

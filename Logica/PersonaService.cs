@@ -40,6 +40,22 @@ namespace Logica
             List<persona> personas =_context.personas.ToList();
             return personas;
         }
+        public GuardarPersonaResponse ConsultarUno(string identificacion)
+        {
+            try
+            {
+                persona persona =_context.personas.Find(identificacion);
+                if(persona!= null){
+                    return new GuardarPersonaResponse(persona);
+                }
+                return new GuardarPersonaResponse("no se encontro la identificacion: "+identificacion);
+            }
+            catch (System.Exception ex)
+            {
+                return new GuardarPersonaResponse(ex.Message);
+            }
+            
+        }
 
         public String Eliminar(String identificacion)
         {
