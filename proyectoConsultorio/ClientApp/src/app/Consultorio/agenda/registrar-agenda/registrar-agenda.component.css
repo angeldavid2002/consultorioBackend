@@ -84,3 +84,6 @@ th {
 .form {
   text-align: center;
 }
+.error{
+  border: 1px solid red;
+}

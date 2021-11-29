@@ -4,14 +4,20 @@ Registrar paciente
 </div>
 <br>
 <br>
+<form [formGroup]="formRegistroCliente">
 <div class="form">
-    <input type="text" [(ngModel)]="persona.identificacion" name="identifiacion" placeholder="identificacion...">
-    <input type="text" [(ngModel)]="persona.nombre" name="nombre" placeholder="nombres...">
-    <input type="text" [(ngModel)]="persona.apellido" name="apellidos" placeholder="apellidos..." />
-    <input type="text" [(ngModel)]="persona.direccion" name="direccion" placeholder="direccion..." />
-    <input id="fecha-seleccion" [(ngModel)]="persona.anoNacimiento" type="datetime-local">
-    <input type="text" [(ngModel)]="persona.correo" name="correo" placeholder="correo electrónico..." />
-    <input type="text" [(ngModel)]="persona.telefono" name="telefono" placeholder="telefono..."/>
+    <input type="text" [class.error]="identificacion.invalid && identificacion.touched" [(ngModel)]="persona.identificacion" name="identifiacion" placeholder="identificacion..." formControlName="identificacion">
+    <input type="text" [class.error]="nombre.invalid && nombre.touched" [(ngModel)]="persona.nombre" name="nombre" placeholder="nombres..." formControlName="nombre">
+    <input type="text" [class.error]="apellido.invalid && apellido.touched" [(ngModel)]="persona.apellido" name="apellidos" placeholder="apellidos..." formControlName="apellido">
+    <input type="text" [class.error]="direccion.invalid && direccion.touched" [(ngModel)]="persona.direccion" name="direccion" placeholder="direccion..." formControlName="direccion">
+    <input type="datetime-local" [class.error]="fecha.invalid && fecha.touched" [(ngModel)]="persona.anoNacimiento" name="fecha" formControlName="fecha">
+    <input type="text"
+    [class.error]="correo.invalid && correo.touched && correo.email"
+    [(ngModel)]="persona.correo" name="correo" placeholder="correo electrónico..." formControlName="correo">
+
+    <input type="text" [class.error]="telefono.invalid && telefono.touched && telefono.pattern(/^[0-9]\d*$/) && telefono.minLength(5)"
+    [(ngModel)]="persona.telefono" name="telefono" placeholder="telefono..." formControlName="telefono">
+
     <p>estado:
       <select class="comboEstado" name="estado" id="estado" [(ngModel)]="persona.estado">
       <option value="activo">activo</option>
@@ -27,3 +33,4 @@ Registrar paciente
       <button type="reset">Borrar</button>
     </div>
 </div>
+</form>

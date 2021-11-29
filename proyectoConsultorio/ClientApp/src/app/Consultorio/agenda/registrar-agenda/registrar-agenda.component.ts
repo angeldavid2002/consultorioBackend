@@ -4,6 +4,7 @@ import { Cita } from '../../Models/Cita';
 import { CitaService } from 'src/app/services/cita.service';
 import { Persona } from '../../Models/Persona';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-registrar-agenda',
   templateUrl: './registrar-agenda.component.html',
@@ -15,7 +16,17 @@ export class RegistrarAgendaComponent implements OnInit {
   buscar:boolean;
   personas:Persona[];
 
+
   constructor(private citaService:CitaService,private clienteService:ClienteService) { }
+
+  get idPersona() { return this.formRegistroAgenda.get('identificacion'); }
+
+  get fecha() { return this.formRegistroAgenda.get('fechaCita'); }
+
+  formRegistroAgenda = new FormGroup({
+    identificacion: new FormControl('',Validators.required),
+    fechaCita: new FormControl('',Validators.required),
+  });
 
   ngOnInit(): void {
     this.cita=new Cita();
@@ -31,12 +42,17 @@ export class RegistrarAgendaComponent implements OnInit {
     });
   }
   registrarCita(){
-    this.citaService.post(this.cita).subscribe(result => {
+    if(this.idPersona.invalid && this.fecha.invalid){
+
+    }else{
+      this.citaService.post(this.cita).subscribe(result => {
         if(result!=null){
           alert('cita agendada :'+JSON.stringify(result));
         }else{
           alert('no se pudo agendar la cita'+JSON.stringify(this.cita));
         }
     });
+    }
+
   }
 }

@@ -15,7 +15,7 @@ import { ClienteListarComponent } from './Consultorio/clientes/cliente-listar/cl
 import { MatStepperModule} from '@angular/material/stepper';
 import { FiltroPacientePipe } from './Consultorio/pipe/pipe-nombre/filtro-paciente.pipe';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { RegistrarHistoriaComponent } from './Consultorio/historia/registrar-historia/registrar-historia.component';
@@ -51,7 +51,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SidebarModule.forRoot(),
     BrowserAnimationsModule,
     MatStepperModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

@@ -10,43 +10,46 @@
   <div class="btnBuscar">
     <button (click)="buscarPersonas()">buscar</button>
   </div>
-  <div class="form">
-    <div class="lista-personas">
-      <table class="table table-striped" *ngIf='personas && personas.length'>
-        <thead>
-          <tr>
-            <th scope="col">identificación</th>
-            <th scope="col">Nombres </th>
-            <th scope="col">apellidos</th>
-            <th scope="col">llenar</th>
-          </tr>
-        </thead>
-        <tbody *ngIf='buscar'>
-          <tr *ngFor="let persona of personas|filtroPaciente:searchText; index as i ">
-            <td>{{ persona.identificacion }}</td>
-            <td>{{ persona.nombre}}</td>
-            <td>{{ persona.apellido}}</td>
-            <td><button class="boton_llenar" (click)="llenarDatos(persona.identificacion)">llenar datos</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <div class="identificacion">
-        <input type="text" [(ngModel)]="cita.idPersona" name="identificacion" placeholder="identificacion...">
+  <form [formGroup]="formRegistroAgenda">
+    <div class="form">
+      <div class="lista-personas">
+        <table class="table table-striped" *ngIf='personas && personas.length'>
+          <thead>
+            <tr>
+              <th scope="col">identificación</th>
+              <th scope="col">Nombres </th>
+              <th scope="col">apellidos</th>
+              <th scope="col">llenar</th>
+            </tr>
+          </thead>
+          <tbody *ngIf='buscar'>
+            <tr *ngFor="let persona of personas|filtroPaciente:searchText; index as i ">
+              <td>{{ persona.identificacion }}</td>
+              <td>{{ persona.nombre}}</td>
+              <td>{{ persona.apellido}}</td>
+              <td><button class="boton_llenar" (click)="llenarDatos(persona.identificacion)">llenar datos</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="identificacion">
+          <input [class.error]="idPersona.invalid && idPersona.touched" type="text" [(ngModel)]="cita.idPersona"
+            formControlName="identificacion"  id="identificacioninput" placeholder="identificacion...">
+        </div>
+      </div>
+      <div>
+        <div class="fecha">
+          <input  [class.error]="fecha.invalid && fecha.touched"   id="fecha-seleccion" [(ngModel)]="cita.fechaCita" formControlName="fechaCita" type="datetime-local">
+        </div>
+      </div>
+      <div>
+        <div class="agendar">
+          <button (click)="registrarCita()" type="button" [disabled]="!formRegistroAgenda.valid">Agendar</button>
+        </div>
+        <div class="borrar">
+          <button type="reset">Borrar</button>
+        </div>
       </div>
     </div>
-    <div>
-      <div class="fecha">
-        <input id="fecha-seleccion" [(ngModel)]="cita.fechaCita" type="datetime-local">
-      </div>
-    </div>
-    <div>
-      <div class="agendar">
-        <button (click)="registrarCita()" type="button">Agendar</button>
-      </div>
-      <div class="borrar">
-        <button type="reset">Borrar</button>
-      </div>
-    </div>
-  </div>
+  </form>

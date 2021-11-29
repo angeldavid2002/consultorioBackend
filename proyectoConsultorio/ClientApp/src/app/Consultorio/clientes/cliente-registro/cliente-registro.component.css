@@ -48,3 +48,6 @@ button:hover{
 .comboEstado{
   width: 55%;
 }
+.error{
+  border: 1px solid red;
+}
