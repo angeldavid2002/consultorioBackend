@@ -11,15 +11,13 @@ Registrar paciente
     <input type="text" [class.error]="apellido.invalid && apellido.touched" [(ngModel)]="persona.apellido" name="apellidos" placeholder="apellidos..." formControlName="apellido">
     <input type="text" [class.error]="direccion.invalid && direccion.touched" [(ngModel)]="persona.direccion" name="direccion" placeholder="direccion..." formControlName="direccion">
     <input type="datetime-local" [class.error]="fecha.invalid && fecha.touched" [(ngModel)]="persona.anoNacimiento" name="fecha" formControlName="fecha">
-    <input type="text"
-    [class.error]="correo.invalid && correo.touched && correo.email"
-    [(ngModel)]="persona.correo" name="correo" placeholder="correo electrónico..." formControlName="correo">
 
-    <input type="text" [class.error]="telefono.invalid && telefono.touched && telefono.pattern(/^[0-9]\d*$/) && telefono.minLength(5)"
-    [(ngModel)]="persona.telefono" name="telefono" placeholder="telefono..." formControlName="telefono">
+    <input type="text" [class.error]="correo.invalid && correo.touched" [(ngModel)]="persona.correo" name="correo" placeholder="correo electrónico..." formControlName="correo">
+
+    <input type="text" [class.error]="telefono.invalid && telefono.touched" [(ngModel)]="persona.telefono" name="telefono" placeholder="telefono..." formControlName="telefono">
 
     <p>estado:
-      <select class="comboEstado" name="estado" id="estado" [(ngModel)]="persona.estado">
+      <select [class.error]="estado.invalid && estado.touched" class="comboEstado" name="estado" id="estado" [(ngModel)]="persona.estado" formControlName="estado">
       <option value="activo">activo</option>
       <option value="inactivo">inactivo</option>
       </select>
@@ -27,7 +25,7 @@ Registrar paciente
 
     <br>
     <div class="registrar">
-      <button type="button" (click)="GuardarPersona()" >registrar</button>
+      <button type="button" (click)="GuardarPersona()" [disabled]="!formRegistroCliente.valid">registrar</button>
     </div>
     <div class="borrar">
       <button type="reset">Borrar</button>

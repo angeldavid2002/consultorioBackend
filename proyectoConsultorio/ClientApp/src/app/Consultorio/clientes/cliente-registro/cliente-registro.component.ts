@@ -12,22 +12,24 @@ export class ClienteRegistroComponent implements OnInit {
   persona: Persona;
   constructor(private clienteService:ClienteService) { }
 
-  get idPersona() { return this.formRegistroAgenda.get('identificacion'); }
-  get nombre() { return this.formRegistroAgenda.get('nombre'); }
-  get apellido() { return this.formRegistroAgenda.get('apellido'); }
-  get direccion() { return this.formRegistroAgenda.get('direccion'); }
-  get fecha() { return this.formRegistroAgenda.get('fecha'); }
-  get correo() { return this.formRegistroAgenda.get('correo'); }
-  get telefono() { return this.formRegistroAgenda.get('telefono'); }
+  get identificacion() { return this.formRegistroCliente.get('identificacion'); }
+  get nombre() { return this.formRegistroCliente.get('nombre'); }
+  get apellido() { return this.formRegistroCliente.get('apellido'); }
+  get direccion() { return this.formRegistroCliente.get('direccion'); }
+  get fecha() { return this.formRegistroCliente.get('fecha'); }
+  get correo() { return this.formRegistroCliente.get('correo'); }
+  get telefono() { return this.formRegistroCliente.get('telefono'); }
+  get estado() {return this.formRegistroCliente.get('estado')}
 
-  formRegistroAgenda = new FormGroup({
+  formRegistroCliente = new FormGroup({
     identificacion: new FormControl('',Validators.required),
     nombre: new FormControl('',Validators.required),
     apellido: new FormControl('',Validators.required),
     direccion: new FormControl('', Validators.required),
     fecha: new FormControl('', Validators.required),
     correo: new FormControl('',[Validators.required,Validators.email]),
-    telefono: new FormControl('',[Validators.required,Validators.pattern(/^[0-9]\d*$/),Validators.minLength(5)])
+    telefono: new FormControl('',Validators.required),
+    estado: new FormControl('',Validators.required)
   });
 
   ngOnInit(): void {
