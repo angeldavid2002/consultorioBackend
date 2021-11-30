@@ -11,6 +11,7 @@ import { ConsultarHistoriaComponent } from './Consultorio/historia/consultar-his
 import { EditarHistoriaComponent } from './Consultorio/historia/editar-historia/editar-historia.component';
 import { RegistrarHistoriaComponent } from './Consultorio/historia/registrar-historia/registrar-historia.component';
 import { HomeComponent } from './Consultorio/home/home.component';
+import { LoginComponent } from './Consultorio/login/login.component';
 import { SideBarComponent } from './Consultorio/side-bar/side-bar.component';
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'listar-clientes',component:ClienteListarComponent},
   {path: 'registrar-historia', component:RegistrarHistoriaComponent},
   {path: 'consultar-historia', component:ConsultarHistoriaComponent},
-  {path: 'editar-historia', component:EditarHistoriaComponent}
+  {path: 'editar-historia', component:EditarHistoriaComponent},
+  {path: 'login', component:LoginComponent}
 ];
 
 @NgModule({

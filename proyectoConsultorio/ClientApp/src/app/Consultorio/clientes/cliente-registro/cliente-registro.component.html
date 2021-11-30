@@ -28,7 +28,7 @@ Registrar paciente
       <button type="button" (click)="GuardarPersona()" [disabled]="!formRegistroCliente.valid">registrar</button>
     </div>
     <div class="borrar">
-      <button type="reset">Borrar</button>
+      <button type="reset" (click)="cerrar()">Borrar</button>
     </div>
 </div>
 </form>

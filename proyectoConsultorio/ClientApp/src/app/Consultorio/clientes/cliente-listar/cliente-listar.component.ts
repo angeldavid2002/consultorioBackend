@@ -1,7 +1,7 @@
-import { Variable } from '@angular/compiler/src/render3/r3_ast';
-import { htmlAstToRender3Ast } from '@angular/compiler/src/render3/r3_template_transform';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { CuadroModalComponent } from '../../modal/cuadro-modal/cuadro-modal.component';
 import { Persona } from '../../Models/Persona';
 
 @Component({
@@ -14,24 +14,29 @@ export class ClienteListarComponent implements OnInit {
   personas:Persona[];
   buscar:boolean;
   persona:Persona;
-  
-  constructor(private clienteService: ClienteService) { }
+
+  constructor(private clienteService: ClienteService,private dialog: MatDialog) { }
   ngOnInit() {
     this.buscar=false;
+  }
+
+  openDialog(texto:String):void {
+    this.dialog.open(CuadroModalComponent,{data:texto});
   }
   buscarPersonas(){
     this.buscar=true;
     this.clienteService.get().subscribe(result => {
       this.personas = result;
     });
+    this.openDialog('lista cargada');
   }
   cambiarEstado(identificacion:string,estado:string){
     this.clienteService.actualizarEstado(identificacion,estado).subscribe(result => {
       if(result!=null){
         if(result.Error==true){
-          alert('ocurrio un error inesperado: '+result.mensaje)
+          this.openDialog('ocurrio un error inesperado: '+result.mensaje)
         }else{
-          alert('mensaje: '+result.mensaje);
+          this.openDialog('mensaje: '+result.mensaje);
         }
       }
     });

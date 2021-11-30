@@ -5,6 +5,8 @@ import { CitaService } from 'src/app/services/cita.service';
 import { Persona } from '../../Models/Persona';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { CuadroModalComponent } from '../../modal/cuadro-modal/cuadro-modal.component';
 @Component({
   selector: 'app-registrar-agenda',
   templateUrl: './registrar-agenda.component.html',
@@ -16,8 +18,11 @@ export class RegistrarAgendaComponent implements OnInit {
   buscar:boolean;
   personas:Persona[];
 
+  openDialog(texto:String):void {
+    this.dialog.open(CuadroModalComponent,{data:texto});
+  }
 
-  constructor(private citaService:CitaService,private clienteService:ClienteService) { }
+  constructor(private citaService:CitaService,private clienteService:ClienteService,private dialog: MatDialog) { }
 
   get idPersona() { return this.formRegistroAgenda.get('identificacion'); }
 
@@ -40,6 +45,7 @@ export class RegistrarAgendaComponent implements OnInit {
     this.clienteService.get().subscribe(result => {
       this.personas = result;
     });
+    this.openDialog('lista cargada');
   }
   registrarCita(){
     if(this.idPersona.invalid && this.fecha.invalid){
@@ -47,9 +53,9 @@ export class RegistrarAgendaComponent implements OnInit {
     }else{
       this.citaService.post(this.cita).subscribe(result => {
         if(result!=null){
-          alert('cita agendada :'+JSON.stringify(result));
+          this.openDialog('se agendo la cita con id :'+result.idCita);
         }else{
-          alert('no se pudo agendar la cita'+JSON.stringify(this.cita));
+          this.openDialog('no se pudo agendar la cita');
         }
     });
     }

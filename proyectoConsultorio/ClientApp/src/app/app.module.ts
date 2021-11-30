@@ -23,6 +23,8 @@ import { ConsultarHistoriaComponent } from './Consultorio/historia/consultar-his
 import { EditarHistoriaComponent } from './Consultorio/historia/editar-historia/editar-historia.component';
 import { LoginComponent } from './Consultorio/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButton, MatButtonModule, MatDialogModule } from '@angular/material';
+import { CuadroModalComponent } from './Consultorio/modal/cuadro-modal/cuadro-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ConsultarHistoriaComponent,
     EditarHistoriaComponent,
     LoginComponent,
+    CuadroModalComponent
   ],
   imports: [
     MatStepperModule,
@@ -52,7 +55,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatStepperModule,
     MatIconModule,
-    ReactiveFormsModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [
     {
@@ -60,6 +65,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       useValue: { displayDefaultIndicatorType: false }
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CuadroModalComponent]
 })
 export class AppModule { }

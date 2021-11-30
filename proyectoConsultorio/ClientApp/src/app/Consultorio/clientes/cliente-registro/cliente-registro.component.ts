@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog,MatDialogConfig } from '@angular/material';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { CuadroModalComponent } from '../../modal/cuadro-modal/cuadro-modal.component';
 import { Persona } from '../../Models/Persona';
 
 @Component({
@@ -10,7 +12,11 @@ import { Persona } from '../../Models/Persona';
 })
 export class ClienteRegistroComponent implements OnInit {
   persona: Persona;
-  constructor(private clienteService:ClienteService) { }
+  constructor(private clienteService:ClienteService,private dialog: MatDialog) { }
+
+  openDialog(texto:String):void {
+    this.dialog.open(CuadroModalComponent,{data:texto});
+  }
 
   get identificacion() { return this.formRegistroCliente.get('identificacion'); }
   get nombre() { return this.formRegistroCliente.get('nombre'); }
@@ -39,10 +45,14 @@ export class ClienteRegistroComponent implements OnInit {
   GuardarPersona() {
     this.clienteService.post(this.persona).subscribe(result => {
         if(result!=null){
-          alert('se creo la persona con identificacion :'+result.identificacion);
+          this.openDialog('se creo la persona con identificacion :'+result.identificacion);
         }else{
-          alert('no se pudo registrar la persona con identificacion: '+this.persona.identificacion);
+          this.openDialog('no se pudo registrar la persona con identificacion: '+this.persona.identificacion);
         }
     });
   }
+  cerrar(){
+    this.openDialog('se limpio')
+  }
+
 }

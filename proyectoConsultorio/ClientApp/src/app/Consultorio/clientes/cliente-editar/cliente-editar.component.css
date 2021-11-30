@@ -78,3 +78,11 @@ button:hover {
   height: auto;
   width: auto;
 }
+.error{
+  background-image: url('../../../../assets/signo-de-exclamacion.png');
+  background-size: 30px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  border: 1px solid red;
+}
